@@ -1,0 +1,755 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Блог - CashUP! | Статьи о кэшбэке и финансах</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/cookie-dialog.css">
+    <style>
+        /* Все стили из предыдущего примера блога */
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #8b5cf6;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Blog Hero */
+        .blog-hero {
+            padding: 140px 0 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .blog-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .blog-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Blog Content */
+        .blog-content {
+            padding: 80px 0;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+        }
+
+        .blog-posts {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .blog-post {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .post-image {
+            height: 250px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .post-content {
+            padding: 2rem;
+        }
+
+        .post-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+
+        .post-category {
+            background: var(--primary-light);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 0.75rem;
+        }
+
+        .post-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .post-title a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        .post-title a:hover {
+            color: var(--primary);
+        }
+
+        .post-excerpt {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .post-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .read-more {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s;
+        }
+
+        .read-more:hover {
+            gap: 0.75rem;
+        }
+
+        .post-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .post-tags .tag {
+            background: var(--light);
+            color: var(--gray);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            text-decoration: none;
+        }
+
+        /* Sidebar */
+        .blog-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-widget {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .widget-title {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .widget-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        .categories-list {
+            list-style: none;
+        }
+
+        .categories-list li {
+            margin-bottom: 0.75rem;
+        }
+
+        .categories-list a {
+            display: flex;
+            justify-content: space-between;
+            text-decoration: none;
+            color: var(--gray);
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+        }
+
+        .categories-list a:hover {
+            color: var(--primary);
+        }
+
+        .category-count {
+            background: var(--light);
+            padding: 0.25rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.75rem;
+        }
+
+        .popular-posts {
+            list-style: none;
+        }
+
+        .popular-post {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .popular-post:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .popular-post-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+
+        .popular-post-content h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .popular-post-content h4 a {
+            text-decoration: none;
+            color: var(--dark);
+            transition: color 0.3s;
+        }
+
+        .popular-post-content h4 a:hover {
+            color: var(--primary);
+        }
+
+        .popular-post-meta {
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: var(--light);
+            color: var(--gray);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.3s;
+        }
+
+        .tag:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* No Posts */
+        .no-posts {
+            text-align: center;
+            padding: 3rem;
+            background: white;
+            border-radius: 15px;
+        }
+
+        /* Пагинация */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 3rem;
+            padding: 2rem 0;
+        }
+
+        .pagination-info {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .pagination-button {
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .pagination-button:hover:not(.disabled) {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .pagination-button.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            border-color: var(--gray-light);
+            color: var(--gray);
+        }
+
+        .pagination-pages {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .page-number {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .page-number:hover {
+            background: var(--light);
+        }
+
+        .page-number.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 2rem;
+            text-align: center;
+            color: #94a3b8;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .blog-sidebar {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .blog-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .post-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .pagination {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .pagination-pages {
+                order: -1;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">C</div>
+                    CashUp!
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html#features">Возможности</a></li>
+                    <li><a href="index.html#how-it-works">Как работает</a></li>
+                    <li><a href="index.html#testimonials">Отзывы</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="blog.html" class="active">Блог</a></li>
+                </ul>
+                <a href="downloads/cashup.apk" class="cta-button">Начать использовать</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="blog-hero-content fade-in">
+                <h1>Блог CashUp!</h1>
+                <p>Полезные статьи о кэшбэке, банковских картах и управлении финансами</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-content">
+        <div class="container">
+            <div class="blog-grid">
+                <div class="blog-posts" id="blog-posts">
+                    <!-- Статьи будут загружены через JavaScript -->
+                </div>
+
+                <!-- Sidebar -->
+                <div class="blog-sidebar">
+                    <!-- Categories Widget -->
+                    <div class="sidebar-widget fade-in">
+                        <h3 class="widget-title">Категории</h3>
+                        <ul class="categories-list" id="categories-list">
+                            <!-- Категории загрузятся через JavaScript -->
+                        </ul>
+                    </div>
+
+                    <!-- Popular Posts Widget -->
+                    <div class="sidebar-widget fade-in">
+                        <h3 class="widget-title">Популярные статьи</h3>
+                        <ul class="popular-posts" id="popular-posts">
+                            <!-- Популярные статьи загрузятся через JavaScript -->
+                        </ul>
+                    </div>
+
+                    <!-- Tags Widget -->
+                    <div class="sidebar-widget fade-in">
+                        <h3 class="widget-title">Теги</h3>
+                        <div class="tags" id="tags-cloud">
+                            <!-- Теги загрузятся через JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Пагинация -->
+            <div class="pagination" id="pagination">
+                <!-- Пагинация будет загружена через JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo" style="color: white; margin-bottom: 1rem;">
+                        <div class="logo-icon">C</div>
+                        CashUp!
+                    </div>
+                    <p style="color: #94a3b8; margin-bottom: 1rem;">Умный кэшбэк и анализ расходов</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Продукт</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#features">Возможности</a></li>
+                        <li><a href="index.html#how-it-works">Как работает</a></li>
+                        <li><a href="downloads/cashup.apk">Скачать</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Компания</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="blog.html">Блог</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Правовая информация</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Политика конфиденциальности</a></li>
+                        <li><a href="pdn-policy.html">Политика обработки персональных данных</a></li>
+                        <li><a href="terms.html">Условия использования</a></li>
+                        <li><a href="cookie-policy.html">Cookie</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CashUp!. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/blog-manager.js"></script>
+    <script src="js/blog-renderer.js"></script>
+
+    <script>
+    // Простой fallback если скрипты не загрузились
+    setTimeout(() => {
+        const postsContainer = document.getElementById('blog-posts');
+        if (postsContainer && postsContainer.innerHTML === '') {
+            postsContainer.innerHTML = `
+                <div class="no-posts">
+                    <h3>Загрузка статей...</h3>
+                    <p>Если статьи не загружаются, проверьте консоль браузера (F12) для отладки.</p>
+                    <button onclick="location.reload()" class="cta-button">Обновить страницу</button>
+                </div>
+            `;
+            }
+        }, 2000);
+    </script>
+                <!-- Cookie Dialog -->
+        <div class="CookieDialog" id="cookieDialog">
+            <div class="cookie-content">
+                <p>Продолжая пользоваться сайтом, я соглашаюсь с <a href="cookie-policy.html" target="_blank">Политикой использования cookie</a>.</p>
+                <button class="cta-button cookie-accept-btn" id="cookieAcceptBtn">Понятно</button>
+            </div>
+        </div>
+
+<script src="js/cookie-dialog.js"></script>
+
+</body>
+</html>

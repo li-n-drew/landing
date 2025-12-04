@@ -1,0 +1,1493 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас - CashUP! - Умный кэшбэк и учёт финансов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/cookie-dialog.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #8b5cf6;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 140px 0 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Founder Section */
+        .founder {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .founder-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .founder-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .founder-text p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        .founder-image {
+            position: relative;
+            text-align: center;
+        }
+
+        .founder-photo {
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .founder-quote {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid var(--primary);
+            margin-top: 2rem;
+            font-style: italic;
+            color: var(--dark);
+        }
+
+        /* Trust Section */
+        .trust {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .trust-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--gray-light);
+        }
+
+        .trust-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .trust-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .trust-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .trust-item p {
+            color: var(--gray);
+        }
+
+        /* Status Section */
+        .status {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .status-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .status-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .status-text p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        .status-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .status-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .status-list i {
+            color: var(--secondary);
+            font-size: 1.25rem;
+            margin-top: 0.25rem;
+        }
+
+        .status-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .status-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid var(--gray-light);
+        }
+
+        .status-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .status-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--gray-light);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .benefit-card p {
+            color: var(--gray);
+        }
+
+        /* Roadmap Section */
+        .roadmap {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .roadmap-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .roadmap-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: var(--primary);
+            transform: translateX(-50%);
+        }
+
+        .roadmap-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .roadmap-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .roadmap-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            width: calc(50% - 40px);
+            border: 1px solid var(--gray-light);
+        }
+
+        .roadmarker {
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .roadmap-item:nth-child(1) .roadmarker {
+            background: var(--secondary);
+        }
+
+        .roadmap-item:nth-child(2) .roadmarker {
+            background: var(--accent);
+        }
+
+        .roadmap-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .roadmap-content ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .roadmap-content li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .roadmap-content li i {
+            color: var(--secondary);
+            margin-top: 0.25rem;
+        }
+
+        /* Early Access Section */
+        .early-access {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            text-align: center;
+        }
+
+        .early-access h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .early-access p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Стили для кнопок в секции Early Access */
+        .early-access .cta-button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1rem;
+            min-width: 180px;
+            text-align: center;
+            border: none;
+        }
+
+        .early-access .button-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .early-access .button-outline {
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+        }
+
+        .early-access .button-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .early-access .buttons-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        #suggestIdeaBtn {
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+        }
+
+        #suggestIdeaBtn:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .benefit-item {
+            text-align: center;
+        }
+
+        .benefit-item i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .benefit-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-item p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .special-offer {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            display: inline-block;
+        }
+
+        /* Transparency Section */
+        .transparency {
+            padding: 80px 0;
+            background: var(--light);
+            text-align: center;
+        }
+
+        .transparency h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .transparency p {
+            font-size: 1.125rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid var(--gray-light);
+        }
+
+        .contact-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .contact-item p {
+            color: var(--gray);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 2rem;
+            text-align: center;
+            color: #94a3b8;
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Modal Window */
+        .modal {
+            background: white;
+    	    border-radius: 16px 8px 8px 16px;
+    	    width: 90%;
+   	    max-width: 500px;
+   	    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+	    transform: translateY(20px);
+	    transition: transform 0.3s ease;
+	    overflow: hidden;
+	    max-height: 90vh;
+	    overflow-y: auto;
+	    /* Скрыть ползунок прокрутки */
+	    scrollbar-width: none; /* Firefox */
+	    -ms-overflow-style: none; /* IE и Edge */
+	}
+
+	.modal::-webkit-scrollbar {
+ 	    display: none; /* Chrome, Safari и Opera */
+	}
+
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+
+        /* Modal Header */
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Modal Body */
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .radio-option {
+            flex: 1;
+            position: relative;
+        }
+
+        .radio-input {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .radio-label {
+            display: block;
+            padding: 0.75rem 1rem;
+            background: var(--light);
+            border: 2px solid var(--gray-light);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .radio-input:checked + .radio-label {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--gray-light);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .checkbox-input {
+            margin-top: 0.25rem;
+        }
+
+        .checkbox-label {
+            font-size: 0.875rem;
+            color: var(--gray);
+            line-height: 1.4;
+        }
+
+        .checkbox-label a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .checkbox-label a:hover {
+            text-decoration: underline;
+        }
+
+        /* Submit Button */
+        .submit-button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        .submit-button:hover {
+            background: var(--primary-dark);
+        }
+
+        .submit-button:disabled {
+            background: var(--gray-light);
+            cursor: not-allowed;
+        }
+
+        /* Success Message */
+        .success-message {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .success-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .success-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .success-text {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .founder-content, .status-content {
+                gap: 3rem;
+            }
+            
+            .roadmap-timeline::before {
+                left: 30px;
+            }
+            
+            .roadmap-item {
+                flex-direction: row !important;
+                padding-left: 60px;
+            }
+            
+            .roadmarker {
+                left: 30px;
+            }
+            
+            .roadmap-content {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .founder-content, .status-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .status-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .radio-group {
+                flex-direction: column;
+            }
+            
+            .modal-body {
+                padding: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .stagger > * {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .stagger > *:nth-child(1) { animation-delay: 0.1s; }
+        .stagger > *:nth-child(2) { animation-delay: 0.2s; }
+        .stagger > *:nth-child(3) { animation-delay: 0.3s; }
+        .stagger > *:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">C</div>
+                    CashUp!
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html#features">Возможности</a></li>
+                    <li><a href="index.html#how-it-works">Как работает</a></li>
+                    <li><a href="index.html#testimonials">Отзывы</a></li>
+                    <li><a href="about.html" class="active">О нас</a></li>
+                    <li><a href="blog.html">Блог</a></li>
+                </ul>
+                <a href="downloads/cashup.apk" class="cta-button">Начать использовать</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="fade-in">Привет! Я создатель CashUp!</h1>
+            <p class="fade-in">Позвольте рассказать, почему я создал это приложение и почему вам стоит присоединиться к нашему сообществу</p>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section class="founder">
+        <div class="container">
+            <div class="founder-content">
+                <div class="founder-text fade-in">
+                    <h2>Почему я создал это приложение</h2>
+                    <p>Всё началось с того, что я сам столкнулся с проблемой: у меня было несколько банковских карт с разными условиями кэшбэка, и я постоянно забывал, какую карту где выгоднее использовать. Тратил время и терял деньги.</p>
+                    <p>Однажды я посчитал, что за год мог бы получить на 20-30% больше кэшбэка, если бы систематизировал этот процесс. Так родилась идея CashUp! — приложения, которое стало бы личным финансовым помощником.</p>
+                    <p>Сначала это был просто скрипт для себя, но потом я понял, что такая проблема есть у многих. Так появилась полноценная версия приложения, которую сейчас тестируют первые пользователи.</p>
+                    
+                    <div class="founder-quote">
+                        "Я верю, что технологии должны делать жизнь проще, а не сложнее. CashUp! — это не просто приложение, а инструмент, который действительно помогает людям экономить время и деньги."
+                    </div>
+                </div>
+                <div class="founder-image fade-in">
+                    <div class="founder-photo">
+                        <img src="images/portrait.png" alt="Андрей Ли - основатель CashUp!" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                    </div>
+                    <h3>Андрей Ли</h3>
+                    <p>Основатель и разработчик CashUp!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <!-- Status Section -->
+    <section class="status">
+        <div class="container">
+            <div class="status-content">
+                <div class="status-text fade-in">
+                    <h2>Мы в начале большого пути</h2>
+                    <p>CashUp! — это новый проект, который только начинает свой путь. Прямо сейчас приложение используют первые тестовые пользователи, чьи отзывы помогают нам делать продукт лучше с каждым днем.</p>
+                    
+                    <ul class="status-list">
+                        <li><i class="fas fa-check-circle"></i> <span><strong>1-я стабильная версия</strong> приложения уже доступна</span></li>
+                        <li><i class="fas fa-users"></i> <span><strong>Небольшой круг</strong> активных пользователей</span></li>
+                        <li><i class="fas fa-bullseye"></i> <span><strong>100% фокус</strong> на качестве и стабильности</span></li>
+                    </ul>
+                </div>
+                <div class="status-cards fade-in">
+                    <div class="status-card">
+                        <h3>Текущий статус</h3>
+                        <p>Приложение находится на стадии закрытого тестирования с небольшой группой пользователей</p>
+                    </div>
+                    <div class="status-card">
+                        <h3>Наша цель</h3>
+                        <p>Создать идеальное приложение для управления кэшбэком, которое будет действительно полезным</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Почему сейчас лучшее время присоединиться?</h2>
+                <p>Как один из первых пользователей, вы получаете эксклюзивные преимущества</p>
+            </div>
+            <div class="benefits-grid stagger">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <h3>Ваше мнение имеет значение</h3>
+                    <p>Как один из первых пользователей, вы можете напрямую влиять на развитие приложения. Каждая ваша идея рассматривается и часто реализуется в следующих версиях.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Персональная поддержка</h3>
+                    <p>Я лично отвечаю на все вопросы и помогаю с настройкой. Никаких автоматических ответов и долгих ожиданий.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Ранний доступ к новым функциям</h3>
+                    <p>Первыми получайте новые возможности и тестируйте их до официального релиза.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Растем вместе</h3>
+                    <p>Станьте частью истории успеха с самого начала. Ваши отзывы помогают создавать действительно полезный продукт.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="roadmap">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Наши ближайшие планы</h2>
+                <p>Дорожная карта развития CashUp!</p>
+            </div>
+            <div class="roadmap-timeline">
+                <div class="roadmap-item fade-in">
+                    <div class="roadmap-content">
+                        <h3>Сейчас в работе</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Сбор обратной связи от первых пользователей</li>
+                            <li><i class="fas fa-check"></i> Улучшение стабильности работы приложения</li>
+                            <li><i class="fas fa-check"></i> Добавление базовых функций аналитики</li>
+                        </ul>
+                    </div>
+                    <div class="roadmarker"></div>
+                </div>
+                <div class="roadmap-item fade-in">
+                    <div class="roadmap-content">
+                        <h3>Ближайшие цели</h3>
+                        <ul>
+                            <li><i class="fas fa-rocket"></i> Запуск iOS-версии приложения</li>
+                            <li><i class="fas fa-rocket"></i> Интеллектуальные уведомления об акциях</li>
+                            <li><i class="fas fa-rocket"></i> Расширение базы магазинов и городов</li>
+                        </ul>
+                    </div>
+                    <div class="roadmarker"></div>
+                </div>
+                <div class="roadmap-item fade-in">
+                    <div class="roadmap-content">
+                        <h3>В перспективе</h3>
+                        <ul>
+                            <li><i class="fas fa-star"></i> Интеграция с банковскими API</li>
+                            <li><i class="fas fa-star"></i> Расширенная аналитика расходов</li>
+                            <li><i class="fas fa-star"></i> Персональные финансовые советы на основе ИИ</li>
+                        </ul>
+                    </div>
+                    <div class="roadmarker"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Early Access Section -->
+    <section id="early-access" class="early-access">
+        <div class="container">
+            <h2 class="fade-in">Станьте одним из первых пользователей!</h2>
+            <p class="fade-in">Присоединяйтесь к нашему закрытому тестированию и получите эксклюзивные преимущества</p>
+            
+            <div class="buttons-container">
+                <a href="./downloads/CashUp.apk" class="cta-button button-primary">Скачать приложение</a>
+                <button class="cta-button button-outline" id="suggestIdeaBtn">Предложить идею</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transparency Section -->
+    <section class="transparency">
+        <div class="container">
+            <h2 class="fade-in">Полная прозрачность</h2>
+            <p class="fade-in">Мы верим, что честность — это важно. Поэтому прямо говорим: мы только начинаем, у нас небольшая, но растущая аудитория, и мы готовы работать над каждым вашим замечанием.</p>
+            <p class="fade-in"><strong>Ваш отзыв может изменить приложение к лучшему!</strong></p>
+            
+            <div class="contact-info stagger">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>support@cashup-app.ru</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-telegram"></i>
+                    <h3>Telegram</h3>
+                    <p>@cash_up_support</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-vk"></i>
+                    <h3>VK</h3>
+                    <p>vk.com/cashup_app</p>
+                </div>
+            </div>
+            
+            <p class="fade-in" style="margin-top: 3rem;">Присоединяйтесь к нам и давайте вместе создадим идеальное приложение для управления финансами!</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo" style="color: white; margin-bottom: 1rem;">
+                        <div class="logo-icon">C</div>
+                        CashUp!
+                    </div>
+                    <p style="color: #94a3b8; margin-bottom: 1rem;">Умный кэшбэк и анализ расходов</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Продукт</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#features">Возможности</a></li>
+                        <li><a href="index.html#how-it-works">Как работает</a></li>
+                        <li><a href="downloads/cashup.apk">Скачать</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Компания</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html" class="active">О нас</a></li>
+                        <li><a href="blog.html">Блог</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Правовая информация</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Политика конфиденциальности</a></li>
+                        <li><a href="pdn-policy.html">Политика обработки персональных данных</a></li>
+                        <li><a href="terms.html">Условия использования</a></li>
+                        <li><a href="cookie-policy.html">Cookie</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CashUp!. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Обратная связь</h2>
+                <button class="modal-close" id="closeModalBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="feedbackForm">
+                    <div class="form-group">
+                        <label class="form-label">Тип обращения</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="feedbackType1" name="feedbackType" value="idea" class="radio-input" checked>
+                                <label for="feedbackType1" class="radio-label">Предложить идею</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="feedbackType2" name="feedbackType" value="review" class="radio-input">
+                                <label for="feedbackType2" class="radio-label">Оставить отзыв</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">Ваше сообщение</label>
+                        <textarea id="message" class="form-textarea" placeholder="Опишите вашу идею или оставьте отзыв..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="form-label">Имя</label>
+                        <input type="text" id="name" class="form-input" placeholder="Ваше имя" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" id="email" class="form-input" placeholder="your@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telegram" class="form-label">Telegram ID (необязательно)</label>
+                        <input type="text" id="telegram" class="form-input" placeholder="@username">
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="agree" class="checkbox-input" required>
+                        <label for="agree" class="checkbox-label">
+                            Согласен на обработку <a href="pdn-agreement.html" target="_blank">персональных данных</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="submit-button">Отправить</button>
+                </form>
+
+                <!-- Success Message (hidden by default) -->
+                <div class="success-message" id="successMessage" style="display: none;">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="success-title">Спасибо за ваше сообщение!</h3>
+                    <p class="success-text">Мы рассмотрим вашу идею/отзыв и свяжемся с вами в ближайшее время.</p>
+                    <button class="cta-button" id="closeSuccessBtn">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const modalOverlay = document.getElementById('modalOverlay');
+            const suggestIdeaBtn = document.getElementById('suggestIdeaBtn');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const feedbackForm = document.getElementById('feedbackForm');
+            const successMessage = document.getElementById('successMessage');
+            const closeSuccessBtn = document.getElementById('closeSuccessBtn');
+
+            // Open modal
+            suggestIdeaBtn.addEventListener('click', function() {
+                modalOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            // Close modal with close button
+            closeModalBtn.addEventListener('click', function() {
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+
+            // Close modal when clicking outside
+            modalOverlay.addEventListener('click', function(e) {
+                if (e.target === modalOverlay) {
+                    modalOverlay.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Close success message
+            closeSuccessBtn.addEventListener('click', function() {
+                successMessage.style.display = 'none';
+                feedbackForm.style.display = 'block';
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                
+                // Reset form
+                feedbackForm.reset();
+            });
+
+            // Form submission
+            feedbackForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    type: document.querySelector('input[name="feedbackType"]:checked').value,
+                    message: document.getElementById('message').value,
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    telegram: document.getElementById('telegram').value
+                };
+
+                // Prepare email data
+                const subjectPrefix = formData.type === 'idea' ? '[ИДЕЯ]' : '[ОТЗЫВ]';
+                const subject = `${subjectPrefix} Новое обращение от ${formData.name}`;
+                
+                const body = `
+ТИП ОБРАЩЕНИЯ: ${formData.type === 'idea' ? 'Предложение идеи' : 'Отзыв'}
+ИМЯ: ${formData.name}
+EMAIL: ${formData.email}
+TELEGRAM: ${formData.telegram || 'Не указан'}
+
+СООБЩЕНИЕ:
+${formData.message}
+
+--
+Отправлено через форму обратной связи CashUp!
+                `.trim();
+
+                // Send via mailto (you can replace this with your backend)
+                const mailtoLink = `mailto:hello@cashup-app.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                window.location.href = mailtoLink;
+
+                // Show success message
+                feedbackForm.style.display = 'none';
+                successMessage.style.display = 'block';
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                    modalOverlay.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Simple scroll animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Header background on scroll
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
+                    header.style.backdropFilter = 'blur(10px)';
+                } else {
+                    header.style.background = 'white';
+                    header.style.backdropFilter = 'none';
+                }
+            });
+        });
+    </script>
+                <!-- Cookie Dialog -->
+        <div class="CookieDialog" id="cookieDialog">
+            <div class="cookie-content">
+                <p>Продолжая пользоваться сайтом, я соглашаюсь с <a href="cookie-policy.html" target="_blank">Политикой использования cookie</a>.</p>
+                <button class="cta-button cookie-accept-btn" id="cookieAcceptBtn">Понятно</button>
+            </div>
+        </div>
+
+<script src="js/cookie-dialog.js"></script>
+</body>
+</html>

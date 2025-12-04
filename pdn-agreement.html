@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Согласие на обработку персональных данных - CashUP! - Умный кэшбэк и учёт финансов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #8b5cf6;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 140px 0 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Document Content */
+        .document-content {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .document-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .document-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .document-body {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .document-section {
+            margin-bottom: 3rem;
+        }
+
+        .document-section h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gray-light);
+        }
+
+        .document-section p {
+            margin-bottom: 1rem;
+            color: var(--gray);
+        }
+
+        .document-section ul, .document-section ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .document-section li {
+            margin-bottom: 0.5rem;
+            color: var(--gray);
+        }
+
+        .highlight-box {
+            background: var(--light);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning-box {
+            background: #fef3cd;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid var(--gray-light);
+        }
+
+        .contact-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .contact-item p {
+            color: var(--gray);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 2rem;
+            text-align: center;
+            color: #94a3b8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .document-header h1 {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .stagger > * {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .stagger > *:nth-child(1) { animation-delay: 0.1s; }
+        .stagger > *:nth-child(2) { animation-delay: 0.2s; }
+        .stagger > *:nth-child(3) { animation-delay: 0.3s; }
+        .stagger > *:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">C</div>
+                    CashUp!
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html#features">Возможности</a></li>
+                    <li><a href="index.html#how-it-works">Как работает</a></li>
+                    <li><a href="index.html#testimonials">Отзывы</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="blog.html">Блог</a></li>
+                </ul>
+                <a href="downloads/cashup.apk" class="cta-button">Начать использовать</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="fade-in">Согласие на обработку персональных данных</h1>
+            <p class="fade-in">Форма согласия на обработку ваших персональных данных</p>
+        </div>
+    </section>
+
+    <!-- Document Content -->
+    <section class="document-content">
+        <div class="container">
+            <div class="document-header fade-in">
+                <h1>ФОРМА СОГЛАСИЯ НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ</h1>
+                <p style="color: var(--gray);">Нажимая кнопку «Принять» / устанавливая флажок √, я свободно, своей волей и в своём интересе даю свое согласие Разработчику приложения CashUp! (далее — «Оператор») на обработку моих персональных данных.</p>
+            </div>
+            
+            <div class="document-body">
+                <div class="document-section fade-in">
+                    <h2>Подтверждение ознакомления</h2>
+                    <p><strong>Я подтверждаю, что мне разъяснены и понятны:</strong></p>
+                    <ul>
+                        <li>Цели, состав, сроки и способы обработки моих персональных данных, подробно изложенные в Политике конфиденциальности и Политике обработки персональных данных.</li>
+                        <li>Мои права как субъекта персональных данных, включая право на отзыв согласия, доступ к своим данным, их исправление, блокирование и удаление.</li>
+                    </ul>
+                    
+                    <div class="warning-box">
+                        <p><strong>Важная информация:</strong> С целью обработки моих обращений используется сервис «Яндекс.Формы» (ООО «Яндекс»), в связи с чем мои данные, указанные в форме, могут передаваться данному оператору. С Политикой конфиденциальности ООО «Яндекс» я ознакомлен(а) по ссылке: <a href="https://yandex.ru/legal/confidential/" target="_blank">https://yandex.ru/legal/confidential/</a>.</p>
+                    </div>
+                </div>
+
+                <div class="document-section fade-in">
+                    <h2>Категории персональных данных</h2>
+                    <p><strong>Согласие предоставляется на обработку следующих категорий персональных данных:</strong></p>
+                    <ul>
+                        <li>Идентификаторы устройства и установки, техническая информация о приложении и устройстве.</li>
+                        <li>Данные о действиях в приложении и/или на сайте (использование функционала, технические журналы ошибок).</li>
+                        <li>Данные о местоположении (при отдельном предоставлении соответствующих разрешений на устройстве).</li>
+                        <li><strong>Контактные и иные данные, предоставляемые мной через формы обратной связи на сайте (имя, адрес электронной почты, текст сообщения).</strong></li>
+                        <li>Информация о банковских картах: название банка, название карты, условия кашбэка (вводится пользователем вручную).</li>
+                        <li>Иные данные, предоставляемые мной самостоятельно при использовании сервиса.</li>
+                    </ul>
+                </div>
+
+                <div class="document-section fade-in">
+                    <h2>Действия с персональными данными</h2>
+                    <p><strong>Обработка персональных данных включает следующие действия:</strong> сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу (предоставление, доступ), обезличивание, блокирование, удаление, уничтожение — всеми способами, предусмотренными действующим законодательством РФ.</p>
+                    
+                    <p><strong>Основные цели обработки:</strong> предоставление функционала Сервиса CashUp!, обработка запросов и обратной связи, улучшение работы Сервиса, обеспечение безопасности.</p>
+                </div>
+
+                <div class="document-section fade-in">
+                    <h2>Передача персональных данных</h2>
+                    <p>Я даю согласие на передачу моих персональных данных следующим третьим лицам — операторам, действующим на основании договоров с Оператором и обеспечивающим необходимый уровень защиты:</p>
+                    <ul>
+                        <li><strong>ООО «Яндекс»</strong> — для целей обработки данных, предоставляемых через формы обратной связи на сайте с использованием сервиса «Яндекс.Формы».</li>
+                        <li><strong>Аффилированные лица и сервисы аналитики (AppMetrica)</strong> — для целей анализа использования Сервиса.</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Важно!</strong> Финансовые реквизиты карт (номера, CVV, PIN-коды, сроки действия) не запрашиваются и не обрабатываются.</p>
+                    </div>
+                </div>
+
+                <div class="document-section fade-in">
+                    <h2>Срок действия согласия</h2>
+                    <p>Согласие действует до момента его отзыва путем направления соответствующего уведомления на адрес электронной почты Оператора: <strong>li4ndrew@yandex.ru</strong>, либо через настройки Приложения (если такая техническая возможность предусмотрена).</p>
+                    <p>Обработка персональных данных, осуществленная до момента отзыва согласия, считается правомерной. В случае отзыва согласия Оператор вправе продолжить обработку персональных данных в случаях, предусмотренных законодательством РФ.</p>
+                </div>
+
+                <div class="document-section fade-in">
+                    <h2>Контакты</h2>
+                    <p>По всем вопросам, связанным с обработкой ваших персональных данных, вы можете связаться с нами:</p>
+                    
+                    <div class="contact-info stagger">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <h3>Email</h3>
+                            <p>li4ndrew@yandex.ru</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-telegram"></i>
+                            <h3>Telegram</h3>
+                            <p>@li4ndrew</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-comment"></i>
+                            <h3>Форма обратной связи</h3>
+                            <p>На сайте</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo" style="color: white; margin-bottom: 1rem;">
+                        <div class="logo-icon">C</div>
+                        CashUp!
+                    </div>
+                    <p style="color: #94a3b8; margin-bottom: 1rem;">Умный кэшбэк и анализ расходов</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Продукт</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#features">Возможности</a></li>
+                        <li><a href="index.html#how-it-works">Как работает</a></li>
+                        <li><a href="downloads/cashup.apk">Скачать</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Компания</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="blog.html">Блог</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Правовая информация</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Политика конфиденциальности</a></li>
+                        <li><a href="pdn-policy.html">Политика обработки персональных данных</a></li>
+                        <li><a href="terms.html">Условия использования</a></li>
+                        <li><a href="cookie-policy.html">Cookie</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CashUp!. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simple scroll animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Header background on scroll
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
+                    header.style.backdropFilter = 'blur(10px)';
+                } else {
+                    header.style.background = 'white';
+                    header.style.backdropFilter = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Условия использования - CashUP! - Умный кэшбэк и учёт финансов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #8b5cf6;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 140px 0 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Document Content */
+        .document-content {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .document-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .document-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .document-header .meta {
+            color: var(--gray);
+            font-size: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .document-body {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .document-section {
+            margin-bottom: 3rem;
+        }
+
+        .document-section h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gray-light);
+        }
+
+        .document-section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 1.5rem 0 1rem;
+            color: var(--dark);
+        }
+
+        .document-section p {
+            margin-bottom: 1rem;
+            color: var(--gray);
+        }
+
+        .document-section ul, .document-section ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .document-section li {
+            margin-bottom: 0.5rem;
+            color: var(--gray);
+        }
+
+        .highlight-box {
+            background: var(--light);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning-box {
+            background: #fef3cd;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid var(--gray-light);
+        }
+
+        .contact-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .contact-item p {
+            color: var(--gray);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 2rem;
+            text-align: center;
+            color: #94a3b8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .document-header h1 {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .stagger > * {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .stagger > *:nth-child(1) { animation-delay: 0.1s; }
+        .stagger > *:nth-child(2) { animation-delay: 0.2s; }
+        .stagger > *:nth-child(3) { animation-delay: 0.3s; }
+        .stagger > *:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">C</div>
+                    CashUp!
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html#features">Возможности</a></li>
+                    <li><a href="index.html#how-it-works">Как работает</a></li>
+                    <li><a href="index.html#testimonials">Отзывы</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="blog.html">Блог</a></li>
+                </ul>
+                <a href="downloads/cashup.apk" class="cta-button">Начать использовать</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="fade-in">Условия использования приложения</h1>
+            <p class="fade-in">Правила и условия использования приложения CashUp!</p>
+        </div>
+    </section>
+
+    <!-- Document Content -->
+    <section class="document-content">
+        <div class="container">
+            <div class="document-header fade-in">
+                <h1>УСЛОВИЯ ИСПОЛЬЗОВАНИЯ ПРИЛОЖЕНИЯ CASHUP!</h1>
+                <div class="meta">
+                    <span><i class="far fa-calendar-alt"></i> Действительно с 20 ноября 2025 года</span>
+                </div>
+            </div>
+            
+            <div class="document-body">
+                <div class="document-section fade-in">
+                    <h2>1. ОБЩИЕ ПОЛОЖЕНИЯ</h2>
+                    
+                    <h3>1.1. Статус Разработчика</h3>
+                    <p>Приложение CashUp! (далее — "Приложение") разработано и поддерживается физическим лицом (далее — "Разработчик"), не зарегистрированным в качестве индивидуального предпринимателя. Приложение распространяется на некоммерческой основе.</p>
+                    
+                    <h3>1.2. Согласие с Условиями</h3>
+                    <p>Начиная использование Приложения, вы подтверждаете свое согласие с настоящими Условиями использования. Если вы не согласны с какими-либо положениями, вы должны немедленно прекратить использование Приложения.</p>
+                    
+                    <h3>1.3. Возрастные ограничения</h3>
+                    <p>Приложение предназначено для пользователей, достигших 16-летнего возраста. Используя Приложение, вы подтверждаете, что соответствуете данному возрастному требованию.</p>
+                </div>
+
+                <div class="document-section fade-in">
+                    <h2>2. ФУНКЦИОНАЛ ПРИЛОЖЕНИЯ</h2>
+                    
+                    <h3>2.1. Описание услуг</h3>
+                    <p>CashUp! предоставляет следующие услуги:</p>
+                    <ul>
+                        <li>Анализ условий кэшбэка банковских карт на основе предоставленной информации пользователем</li>
+                        <li>Рекомендации по выбору оптимальной карты для покупок</li>
+                        <li>Учет и анализ расходов</li>
+                        <li>Геолокационные уведомления о выгодных предложениях</li>
+                    </ul>
+                    
+                    <h3>2.2. Ограничения функционала</h3>
+                    <p>Приложение НЕ предоставляет:</p>
+                    <ul>
+                        <li>Брокерских или банковских услуг</li>
+                        <li>Инвестиционных рекомендаций</li>
+                    </ul>
+                    
+                    <h3>2.3. Технические требования</h3>
+                    <p>Для работы Приложения требуется:</p>
+                    <ul>
+                        <li>Android 8.0+</li>
+                        <li>Доступ к интернету (для отдельных функций)</li>
+                        <li>Разрешение на использование геолокации (опционально)</li>
+                    </ul>
+                    
+                    <h3>2.4. Процесс установки</h3>
+                    <p>Для установки Приложения:</p>
+                    <ul>
+                        <li>Скачайте APK-файл с официального сайта mycashup.ru</li>
+                        <li>Разрешите установку из неизвестных источников (только для Android)</li>
+                        <li>Следуйте инструкциям установки</li>
+                    </ul>
+                </div>
+
+                <div class="document-section fade-in">
+                    <h2>3. СТАТУС РАЗРАБОТЧИКА И ОГРАНИЧЕНИЯ ОТВЕТСТВЕННОСТИ</h2>
+                    
+                    <h3>3.1. Некоммерческий статус</h3>
+                    <p>Разработчик:</p>
+                    <ul>
+                        <li>Не является индивидуальным предпринимателем</li>
+                        <li>Не получает доход от распространения Приложения</li>
+                        <li>Не несет налоговых обязательств, связанных с Приложением</li>
+                    </ul>
+                    
+                    <h3>3.2. Ограничение ответственности</h3>
+                    <div class="warning-box">
+                        <p><strong>РАЗРАБОТЧИК НЕ НЕСЕТ ОТВЕТСТВЕННОСТИ ЗА:</strong></p>
+                        <ul>
+                            <li>Финансовые потери или убытки пользователей</li>
+                            <li>Неточности в информации о кэшбэке</li>
+                            <li>Изменения условий банковских программ</li>
+                            <li>Технические сбои и недоступность Приложения</li>
+                            <li>Действия третьих лиц</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>3.3. Отказ от гарантий</h3>
+                    <p>Приложение предоставляется "как есть". Разработчик не дает никаких гарантий относительно:</p>
+                    <ul>
+                        <li>Соответствия ожиданиям пользователя</li>
+                        <li>Точности предоставляемых данных</li>
+                    </ul>
+                </div>
+
+                <div class="document-section fade-in">
+                    <h2>4. ОБРАБОТКА ПЕРСОНАЛЬНЫХ ДАННЫХ</h2>
+                    
+                    <h3>4.1. Принципы обработки данных</h3>
+                    <p>Разработчик обязуется:</p>
+                    <ul>
+                        <li>Обрабатывать данные в соответствии с Федеральным законом № 152-ФЗ</li>    
+                        <li>Не передавать данные третьим лицам, кроме случаев, указанных в п. 4.4</li>
+                        <li>Обеспечивать конфиденциальность данных</li>
+                        <li>Собирать только минимально необходимые данные для функционирования Приложения</li>
+                    </ul>
+                    
+                    <h3>4.2. Типы собираемых данных</h3>
+                    <p>Приложение может обрабатывать:</p>
+                    <ul>
+                        <li>Информацию о банковских картах (условия кашбэка, категории)</li>
+                        <li>Данные о местоположении (только с явного согласия)</li>
+                        <li>Статистику использования Приложения</li>
+                        <li>Технические данные устройства</li>
+                    </ul>
+                    
+                    <h3>4.3. Хранение данных</h3>
+                    <p>Все данные пользователей:</p>
+                    <ul>
+                        <li>Хранятся локально на устройстве</li>
+                        <li>Могут быть удалены пользователем в любой момент</li>
+                        <li>Не передаются на серверы Разработчика</li>
+                    </ul>
+
+                    <h3>4.4. Использование Яндекс AppMetrica</h3>
+                    <p>Для анализа использования Приложения и улучшения его функциональности используется сервис Яндекс AppMetrica, 
+                        который может собирать следующие данные:</p>
+                    <ul>
+                        <li>Техническая информация об устройстве (модель, версия ОС)</li>
+                        <li>Статистика использования функций Приложения</li>
+                        <li>Данные о сбоях и ошибках</li>
+                        <li>Информация о сессиях и событиях в Приложении</li>
+                    </ul>
+
+                    <h3>4.5. Особенности работы с Яндекс AppMetrica</h3>
+                    <p>Сбор данных через Яндекс AppMetrica осуществляется с соблюдением следующих принципов:</p>
+                    <ul>
+                        <li>Собранные данные анонимизированы и не позволяют идентифицировать личность пользователя</li>
+                        <li>Данные передаются и хранятся на серверах ООО "Яндекс" (Россия)</li>
+                        <li>Яндекс обрабатывает данные в соответствии со своей Политикой конфиденциальности</li>
+                    </ul>
+                </div>
+
+                <div class="document-section fade-in">
+                    <h2>5. ИНТЕЛЛЕКТУАЛЬНАЯ СОБСТВЕННОСТЬ</h2>
+                    
+                    <h3>5.1. Авторские права</h3>
+                    <p>Разработчик заявляет о своих авторских правах на следующие объекты:</p>
+                    <ul>
+                        <li>Название "CashUp!"</li>
+                        <li>Исходный код Приложения</li>
+                        <li>Дизайн и пользовательский интерфейс</li>
+                        <li>Логотипы и визуальные элементы</li>
+                        <li>Документацию и методические материалы</li>
+                    </ul>
+                    
+                    <h3>5.2. Правовой статус объектов</h3>
+                    <p>Указанные в п. 5.1 объекты:</p>
+                    <ul>
+                        <li>Являются результатом интеллектуальной деятельности Разработчика</li>
+                        <li>Охраняются в соответствии с частью 4 Гражданского кодекса РФ</li>
+                        <li>Не прошли государственную регистрацию, но защищаются авторским правом</li>
+                        <li>Признаются охраняемыми с момента их создания</li>
+                    </ul>
+                    
+                    <h3>5.3. Ограничения использования</h3>
+                    <p>Пользователю запрещается:</p>
+                    <ul>
+                        <li>Копировать, модифицировать или декомпилировать Приложение</li>
+                        <li>Использовать объекты интеллектуальной собственности в коммерческих целях</li>
+                        <li>Создавать производные продукты на основе Приложения</li>
+                        <li>Использовать название "CashUp!" для собственных проектов</li>
+                    </ul>
+                    
+                    <h3>5.4. Авторское право</h3>
+                    <p>В соответствии со ст. 1257 ГК РФ, авторские права возникают с момента создания произведения и не требуют обязательной регистрации. Разработчик сохраняет все личные неимущественные и исключительные права на Приложение.</p>
+                </div>
+
+                <div class="document-section fade-in">
+                    <h2>6. УСЛОВИЯ РАСПРОСТРАНЕНИЯ</h2>
+                    
+                    <h3>6.1. Бесплатное распространение</h3>
+                    <p>Приложение распространяется:</p>
+                    <ul>
+                        <li>На безвозмездной основе</li>
+                        <li>Через официальный сайт</li>
+                    </ul>
+                    
+                    <h3>6.2. Отсутствие коммерческой деятельности</h3>
+                    <p>Разработчик:</p>
+                    <ul>
+                        <li>Не взимает плату за использование Приложения</li>
+                        <li>Не размещает рекламу в Приложении</li>
+                        <li>Не получает комиссионные от банков или партнеров</li>
+                    </ul>
+                </div>
+
+                <div class="document-section fade-in">
+                    <h2>7. ЗАКЛЮЧИТЕЛЬНЫЕ ПОЛОЖЕНИЯ</h2>
+                    
+                    <h3>7.1. Изменение Условий</h3>
+                    <p>Разработчик оставляет право:</p>
+                    <ul>
+                        <li>Вносить изменения в настоящие Условия</li>
+                        <li>Уведомлять пользователей об изменениях через Приложение</li>
+                        <li>Требовать принятия новых Условий для продолжения использования</li>
+                    </ul>
+                    
+                    <h3>7.2. Прекращение использования</h3>
+                    <p>Пользователь вправе:</p>
+                    <ul>
+                        <li>Прекратить использование Приложения в любой момент</li>
+                        <li>Удалить Приложение со своего устройства</li>
+                        <li>Требовать удаления своих данных (при их наличии)</li>
+                    </ul>
+                    
+                    <h3>7.3. Разрешение споров</h3>
+                    <p>Все споры подлежат разрешению:</p>
+                    <ul>
+                        <li>Путем переговоров между пользователем и Разработчиком</li>
+                        <li>В соответствии с законодательством Российской Федерации</li>
+                        <li>По месту жительства Разработчика</li>
+                    </ul>
+                </div>
+
+                <div class="document-section fade-in">
+                    <h2>8. КОНТАКТНАЯ ИНФОРМАЦИЯ</h2>
+                    <p>Для связи с Разработчиком используйте:</p>
+                    
+                    <div class="contact-info stagger">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <h3>Email</h3>
+                            <p>li4ndrew@yandex.ru</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-telegram"></i>
+                            <h3>Telegram</h3>
+                            <p>@li4ndrew</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo" style="color: white; margin-bottom: 1rem;">
+                        <div class="logo-icon">C</div>
+                        CashUp!
+                    </div>
+                    <p style="color: #94a3b8; margin-bottom: 1rem;">Умный кэшбэк и анализ расходов</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Продукт</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#features">Возможности</a></li>
+                        <li><a href="index.html#how-it-works">Как работает</a></li>
+                        <li><a href="downloads/cashup.apk">Скачать</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Компания</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="blog.html">Блог</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Правовая информация</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Политика конфиденциальности</a></li>
+                        <li><a href="pdn-policy.html">Политика обработки персональных данных</a></li>
+                        <li><a href="terms.html" class="active">Условия использования</a></li>
+                        <li><a href="cookie-policy.html">Cookie</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CashUp!. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simple scroll animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Header background on scroll
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
+                    header.style.backdropFilter = 'blur(10px)';
+                } else {
+                    header.style.background = 'white';
+                    header.style.backdropFilter = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

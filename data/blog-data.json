@@ -1,0 +1,64 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      "category": "Кэшбэк",
+      "date": "15 мая 2025",
+      "readTime": "8 мин чтения",
+      "title": "Как получать максимальный кэшбэк с каждой покупки",
+      "excerpt": "Узнайте, как правильно использовать банковские карты с кэшбэком, чтобы получать до 30% возврата от каждой покупки.",
+      "slug": "kak-poluchat-maksimalnyj-keshbek",
+      "contentFile": "./posts/kak-poluchat-maksimalnyj-keshbek.html",
+      "tags": ["кэшбэк", "карты", "экономия"]
+    },
+    {
+      "id": 2,
+      "image": "https://images.unsplash.com/photo-1550565118-3a14e8d0386f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+      "category": "Банковские карты",
+      "date": "30 декабря 2025",
+      "readTime": "7 мин чтения",
+      "title": "Битва титанов: Чья карта выгоднее в конце 2025 года? Честный разбор топ-5 банков",
+      "excerpt": "Сравнительный анализ карт Сбера, Т-Банка, Альфа-Банка, ВТБ и Газпромбанка. Кто реально дает заработать, а кто просто заваливает фантиками?",
+      "slug": "top-5-kart-2025",
+      "contentFile": "./posts/top-5-kart-2025.html",
+      "tags": ["банковские карты", "кэшбэк", "сравнение", "топ-5", "2025"]
+    },
+    {
+      "id": 3,
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+      "category": "Финансы",
+      "date": "20 мая 2025",
+      "readTime": "10 мин чтения",
+      "title": "Анализ расходов: полное руководство по управлению личными финансами в 2025 году",
+      "excerpt": "Пошаговое руководство по анализу личных расходов: от сбора данных до оптимизации бюджета и увеличения кэшбэка. Узнайте, как экономить до 20% без снижения качества жизни.",
+      "slug": "analiz-raskhodov-polnoe-rukovodstvo",
+      "contentFile": "./posts/kak-analizirovat-raskhody.html",
+      "tags": ["анализ", "расходы", "бюджет", "финансы", "экономия"]
+    },
+    {
+      "id": 4,
+      "image": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      "category": "Финансы",
+      "date": "30 мая 2025",
+      "readTime": "10 мин чтения",
+      "title": "Финансовая свобода: Как перестать беспокоиться о деньгах",
+      "excerpt": "5 простых шагов к финансовой грамотности, которые помогут навести порядок в кошельке и голове. Узнайте, как составить бюджет, создать подушку безопасности и начать инвестировать.",
+      "slug": "finansovaya-svoboda",
+      "contentFile": "./posts/finansovaya-svoboda.html",
+      "tags": ["финансовая грамотность", "бюджет", "накопления", "инвестиции", "долги"]
+    },
+    {
+      "id": 5,
+      "image": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+      "category": "Финансы",
+      "date": "28 мая 2025",
+      "readTime": "8 мин чтения",
+      "title": "Зарплата не растет: 6 способов увеличить доход без смены работы",
+      "excerpt": "Практические стратегии монетизации навыков и хобби для увеличения дохода без ухода с основной работы.",
+      "slug": "kak-uvelichit-dohod",
+      "contentFile": "./posts/kak-uvelichit-dohod.html",
+      "tags": ["доход", "фриланс", "монетизация", "хобби", "финансы"]
+    }
+  ]
+}

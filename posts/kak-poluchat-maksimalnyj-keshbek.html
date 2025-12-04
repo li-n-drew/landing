@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Как получать максимальный кэшбэк и не потерять ни рубля</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+        }
+
+        .article-content {
+            line-height: 1.7;
+            color: #333;
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .article-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: #1e293b;
+            line-height: 1.3;
+        }
+
+        .article-content h3 {
+            font-size: 1.6rem;
+            margin: 2.5rem 0 1rem;
+            color: #1e293b;
+            border-left: 4px solid #6366f1;
+            padding-left: 1rem;
+        }
+
+        .article-content h4 {
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.5rem;
+            color: #374151;
+        }
+
+        .article-content p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Советы и предупреждения */
+        .tip {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid #10b981;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .tip i {
+            color: #10b981;
+            margin-right: 0.5rem;
+        }
+
+        .warning {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .warning i {
+            color: #f59e0b;
+            margin-right: 0.5rem;
+        }
+
+        /* План действий */
+        .action-plan {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Сетка */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .grid-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Шаги стратегии */
+        .strategy-steps {
+            display: grid;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #6366f1;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Карточки с иконками */
+        .icon-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            margin: 1rem 0;
+        }
+
+        .icon-card i {
+            color: #6366f1;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        /* Блок призыва к действию */
+        .action-box {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .action-box h4 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            background: white;
+            color: #6366f1;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-button.secondary:hover {
+            background: white;
+            color: #6366f1;
+        }
+
+        /* Цитата */
+        blockquote {
+            border-left: 4px solid #6366f1;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            background: #f8fafc;
+            border-radius: 0 10px 10px 0;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #4b5563;
+        }
+
+        /* Списки */
+        .article-content ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .article-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .article-content h3 {
+                font-size: 1.4rem;
+            }
+            
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .step, .icon-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-content">
+        <h2>Как получать максимальный кэшбэк и не потерять ни рубля</h2>
+        
+        <p>Кэшбэк давно перестал быть «приятным бонусом» и превратился в полноценный инструмент экономии. При грамотном подходе он может приносить вам тысячи рублей в месяц — без лишних усилий, просто за счёт правильного выбора карты и способа оплаты.</p>
+        
+        <p>Ниже — простая система, как выжать максимум из кэшбэк-программ банков и не попасть на штрафы и комиссии.</p>
+        
+        <h3>Основные принципы максимального кэшбэка</h3>
+        
+        <div class="tip">
+            <i class="fas fa-lightbulb"></i>
+            <strong>Главное правило:</strong> Кэшбэк — это возврат части уже необходимых расходов, а не повод тратить больше.
+        </div>
+        
+        <h4>1. Используйте разные карты для разных категорий покупок</h4>
+        
+        <p>Универсальной карты с максимальным кэшбэком «на всё» почти не существует. Обычно банк даёт:</p>
+        
+        <div class="grid-2">
+            <div class="grid-item">
+                <h4>Базовый кэшбэк</h4>
+                <p>1–2% на все покупки.</p>
+            </div>
+            <div class="grid-item">
+                <h4>Повышенный кэшбэк</h4>
+                <p>3–15% на отдельные категории: кафе, супермаркеты, АЗС, такси, онлайн-подписки, маркетплейсы и т.д.</p>
+            </div>
+        </div>
+        
+        <div class="action-plan">
+            <h4>Что делать:</h4>
+            <p>Держите 2–3 карты разных банков с сильными категориями (например, одна — супермаркеты, другая — кафе и развлечения, третья — АЗС и поездки).</p>
+            
+            <h4>Как запомнить:</h4>
+            <ul>
+                <li>Привяжите каждую карту к «своим» тратам и не путайте их.</li>
+                <li>Запишите или запомните, какая карта выгоднее в каких ситуациях.</li>
+            </ul>
+        </div>
+        
+        <h4>2. Следите за акциями и специальными предложениями</h4>
+        
+        <p>Банки постоянно запускают акции:</p>
+        
+        <div class="icon-card">
+            <i class="fas fa-percentage"></i>
+            <div>
+                <h4>Увеличенный кэшбэк в категориях</h4>
+                <p>Например, кафе в декабре — 10% вместо 5%.</p>
+            </div>
+        </div>
+        
+        <div class="icon-card">
+            <i class="fas fa-gift"></i>
+            <div>
+                <h4>Повышенный кэшбэк у партнёров</h4>
+                <p>Конкретные маркетплейсы, сети супермаркетов, доставка еды.</p>
+            </div>
+        </div>
+        
+        <div class="warning">
+            <i class="fas fa-exclamation-triangle"></i>
+            <strong>Важно:</strong> Обращайте внимание на ограничения: максимальная сумма кэшбэка в месяц, список исключений, МСС-коды. Иногда выгоднее перенести крупную покупку на период акции.
+        </div>
+        
+        <h4>3. Оплачивайте карты вовремя и избегайте штрафов</h4>
+        
+        <p>Максимальный кэшбэк бессмысленен, если его «съедают» проценты и штрафы.</p>
+        
+        <div class="strategy-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <p>Всегда следите за датой платежа по кредитной карте и минимальным платежом.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <p>Не допускайте просрочек — штрафы и пени легко перекрывают всю выгоду.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <p>Контролируйте общий долг по кредиткам, чтобы не заходить за комфортный уровень.</p>
+            </div>
+        </div>
+        
+        <div class="tip">
+            <i class="fas fa-piggy-bank"></i>
+            <strong>Совет:</strong> Лучший кэшбэк — тот, который вы реально сохраняете, а не отдаёте обратно банку.
+        </div>
+        
+        <h4>4. Не гонитесь за кэшбэком любой ценой</h4>
+        
+        <p>Распространённая ошибка — покупать лишнее «ради кэшбэка». Это прямая дорога к лишним тратам.</p>
+        
+        <blockquote>
+            "Покупка, которую вы бы не сделали без кэшбэка, чаще всего невыгодна. Лучше сэкономить 100% и не купить ненужное, чем «заработать» 5–10% кэшбэка."
+        </blockquote>
+        
+        <h4>5. Автоматизируйте выбор лучшей карты</h4>
+        
+        <p>Когда карт становится несколько, держать в голове все проценты и категории становится неудобно. В итоге люди начинают платить «чем попало» и теряют часть выгоды.</p>
+        
+        <div class="action-plan">
+            <h4>Решение:</h4>
+            <p>Используйте приложение <strong>CashUp!</strong> — оно помогает автоматически подобрать лучшую карту для каждой покупки.</p>
+            
+            <h4>Как это работает:</h4>
+            <ul>
+                <li>Указываете тип траты (супермаркет, АЗС, кафе, онлайн-покупка)</li>
+                <li>CashUp! подсказывает, какой картой выгоднее заплатить и какой процент кэшбэка вы получите</li>
+            </ul>
+        </div>
+        
+        <h3>Заключение</h3>
+        
+        <p>Получать максимальный кэшбэк — это не про «хитрые схемы», а про системный подход:</p>
+        
+        <div class="strategy-steps">
+            <div class="step">
+                <div class="step-number">✓</div>
+                <p>Разбейте расходы по категориям и используйте разные карты там, где это выгодно.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">✓</div>
+                <p>Следите за акциями, не забывайте активировать категории и учитывать лимиты.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">✓</div>
+                <p>Оплачивайте карты вовремя и избегайте штрафов и процентов.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">✓</div>
+                <p>Не покупайте лишнее только ради бонусов.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">✓</div>
+                <p>Используйте автоматизацию для выбора оптимальной карты.</p>
+            </div>
+        </div>
+        
+        <p>Следуя этим простым правилам, вы сможете заметно увеличить возврат от своих повседневных расходов, не меняя стиль жизни и не тратя лишнее время на изучение сложных тарифов.</p>
+        
+        <div class="action-box">
+            <h4>Начните экономить умнее уже сегодня!</h4>
+            <p style="color: white; margin-bottom: 1.5rem;">Скачайте CashUp! и получайте максимальный кэшбэк с каждой покупки. Наш умный помощник подберет лучшие карты и покажет, где можно сэкономить больше.</p>
+            <div class="action-buttons">
+                <a href="index.html#download" class="cta-button">Скачать CashUp!</a>
+                <a href="blog.html" class="cta-button secondary">Читать другие статьи</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

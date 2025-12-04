@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Часто задаваемые вопросы - CashUP! - Умный кэшбэк и учёт финансов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #8b5cf6;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 140px 0 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* FAQ Content */
+        .faq-content {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .faq-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .faq-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .faq-header p {
+            font-size: 1.125rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .faq-categories {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .category-btn {
+            background: var(--light);
+            border: 2px solid var(--gray-light);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .category-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .category-btn:hover:not(.active) {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .faq-section {
+            margin-bottom: 4rem;
+        }
+
+        .faq-section h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--dark);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gray-light);
+        }
+
+        .faq-item {
+            background: var(--light);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--gray-light);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .faq-answer ul, .faq-answer ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .faq-answer li {
+            margin-bottom: 0.5rem;
+            color: var(--gray);
+        }
+
+        .highlight-box {
+            background: white;
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid var(--gray-light);
+        }
+
+        .contact-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .contact-item p {
+            color: var(--gray);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 2rem;
+            text-align: center;
+            color: #94a3b8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .faq-header h1 {
+                font-size: 2rem;
+            }
+
+            .faq-categories {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .category-btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .stagger > * {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .stagger > *:nth-child(1) { animation-delay: 0.1s; }
+        .stagger > *:nth-child(2) { animation-delay: 0.2s; }
+        .stagger > *:nth-child(3) { animation-delay: 0.3s; }
+        .stagger > *:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">C</div>
+                    CashUp!
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html#features">Возможности</a></li>
+                    <li><a href="index.html#how-it-works">Как работает</a></li>
+                    <li><a href="index.html#testimonials">Отзывы</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="blog.html">Блог</a></li>
+                </ul>
+                <a href="downloads/cashup.apk" class="cta-button">Начать использовать</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="fade-in">Часто задаваемые вопросы</h1>
+            <p class="fade-in">Ответы на самые популярные вопросы о CashUp!</p>
+        </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <section class="faq-content">
+        <div class="container">
+            <div class="faq-header fade-in">
+                <h1>Часто задаваемые вопросы (FAQ) о CashUp!</h1>
+                <p>Здесь вы найдете ответы на самые распространенные вопросы о нашем приложении</p>
+            </div>
+
+            <div class="faq-categories fade-in">
+                <button class="category-btn active" data-category="all">Все вопросы</button>
+                <button class="category-btn" data-category="app">О приложении</button>
+                <button class="category-btn" data-category="cards">Карты и кэшбэк</button>
+                <button class="category-btn" data-category="stats">Статистика</button>
+                <button class="category-btn" data-category="geo">Геолокация</button>
+                <button class="category-btn" data-category="security">Безопасность</button>
+            </div>
+
+            <div class="faq-sections">
+                <!-- О приложении -->
+                <div class="faq-section" data-category="app">
+                    <h2>1. О приложении</h2>
+                    
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Что такое CashUp?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>CashUp — это мобильное приложение, которое помогает выбирать, какую карту использовать для покупок, чтобы получить максимальный кэшбэк, и вести простую статистику по расходам и кэшбэку.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Как CashUp помогает экономить?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Приложение хранит условия кэшбэка по вашим картам и показывает, какая карта даёт наибольший процент в нужной категории или магазине, а также считает потенциальный кэшбэк по введённым расходам.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Сколько стоит использование приложения?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Текущая версия приложения полностью бесплатна и не содержит платных подписок.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карты и категории кэшбэка -->
+                <div class="faq-section" data-category="cards">
+                    <h2>2. Карты и категории кэшбэка</h2>
+                    
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Как добавить банковскую карту?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Откройте раздел «Карты», нажмите кнопку добавления, введите название карты, банка и категории кэшбэка с процентами, затем сохраните.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Нужно ли вводить номер карты и CVV?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="highlight-box">
+                                <p><strong>Нет!</strong> Приложение хранит только название карты, банк и категории кэшбэка. Конфиденциальные реквизиты не запрашиваются и не сохраняются.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Какие категории кэшбэка поддерживаются?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>В приложении есть предустановленный список категорий: «Супермаркеты», «Рестораны», «АЗС», «Онлайн-покупки», «Такси», «Аптеки», «Путешествия», «Коммунальные услуги», «Связь», «На все» и другие.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Что означает категория «На все»?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Это универсальный кэшбэк без привязки к конкретным тратам. Если для выбранной категории не найдено точное совпадение, приложение использует максимальный процент по категории «На все» как запасной вариант.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Рекомендации по картам -->
+                <div class="faq-section" data-category="cards">
+                    <h2>3. Рекомендации по картам</h2>
+                    
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Как работает поиск лучшей карты под покупку?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>На главном экране выберите категорию покупки и нажмите «Найти лучшую карту» — приложение покажет карту с максимальным кэшбэком для этой категории.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Что означают подписи «Идеальное совпадение» и «Лучший вариант»?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <ul>
+                                <li><strong>«Идеальное совпадение»</strong> — карта с наибольшим процентом именно в выбранной категории</li>
+                                <li><strong>«Лучший вариант»</strong> — карта с максимальным универсальным кэшбэком, если точной категории нет</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Что такое «Рекомендация на сегодня» на главном экране?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Это подсказка по карте с наибольшим кэшбэком среди всех ваших карт в любых категориях — помогает выбрать базовую карту, если не хотите вручную подбирать категории.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Можно ли увидеть все карты, которые дают кэшбэк в конкретной категории?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Да, на главном экране можно открыть категорию и посмотреть список всех карт с указанием процентов кэшбэка для этой категории.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Статистика и расходы -->
+                <div class="faq-section" data-category="stats">
+                    <h2>4. Статистика и расходы</h2>
+                    
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Что показывает вкладка «Статистика»?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Отображается кэшбэк за текущий месяц и накопительно за год, а также разбивка по категориям трат с учётом введённых сумм расходов.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Как учитываются расходы по категориям?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Вы вводите планируемые или фактические расходы по категориям в модальном окне, а приложение рассчитывает потенциальный кэшбэк с учётом максимального процента среди всех карт по каждой категории.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Как работает категория «Прочее» в статистике расходов?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Категория «Прочее» соответствует универсальному кэшбэку «На все» и используется для всех трат, не попавших в конкретные категории.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Сохраняются ли введённые расходы между месяцами?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Да, суммы расходов сохраняются по месяцам, используются для годовой статистики и могут быть скорректированы.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Геолокационные уведомления и магазины -->
+                <div class="faq-section" data-category="geo">
+                    <h2>5. Геолокационные уведомления и магазины</h2>
+                    
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Что такое геолокационные уведомления в CashUp?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Приложение может отслеживать ваше местоположение и при приближении к магазинам из встроенной базы показывать подсказки по картам и категориям кэшбэка.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Нужна ли геолокация для работы приложения?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Основные функции (карты, рекомендации по категориям, статистика) работают без геолокации. Геолокация нужна только для уведомлений о магазинах.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Что за база магазинов используется в приложении?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Приложение использует локальную базу данных с сетью магазинов и их координатами. Базы привязаны к конкретному городу. В текущей сборке только по Санкт-Петербургу.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Можно ли отключить геолокационные уведомления?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Да, в настройках уведомлений можно выключить геолокацию и фоновое отслеживание.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Безопасность и данные -->
+                <div class="faq-section" data-category="security">
+                    <h2>6. Безопасность и данные</h2>
+                    
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Где хранятся мои данные?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Все данные о картах, расходах и настройках хранятся локально на устройстве и в локальной базе данных. Передача этих данных на сервер не выполняется.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Собирает ли приложение аналитику?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Да, приложение отправляет технические события (ошибки, установки, использование функций) в систему AppMetrica для улучшения качества сервиса. Передаются только обезличенные данные без реквизитов карт и конкретных транзакций.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Как удалить все данные из приложения?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Вы можете удалить приложение с устройства, чтобы стереть локальные данные, или использовать встроенные настройки управления данными для очистки карт, расходов и настроек.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Производительность и батарея -->
+                <div class="faq-section" data-category="app">
+                    <h2>7. Производительность и батарея</h2>
+                    
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Сильно ли фоновая геолокация расходует батарею?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Фоновое отслеживание настроено в адаптивном режиме с балансом между точностью и расходом энергии. Используется ограниченный радиус и интервалы обновлений.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in">
+                        <div class="faq-question">
+                            <span>Можно ли полностью отключить работу в фоне?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Да, вы можете отключить геолокацию и уведомления в настройках, тогда приложение не будет запускать фоновые задачи и будет работать только при открытом экране.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="document-section fade-in">
+                <h2>Не нашли ответ на свой вопрос?</h2>
+                <p>Свяжитесь с нами, и мы с радостью поможем вам!</p>
+                
+                <div class="contact-info stagger">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>li4ndrew@yandex.ru</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-telegram"></i>
+                        <h3>Telegram</h3>
+                        <p>@li4ndrew</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-comment"></i>
+                        <h3>Форма обратной связи</h3>
+                        <p>На сайте</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo" style="color: white; margin-bottom: 1rem;">
+                        <div class="logo-icon">C</div>
+                        CashUp!
+                    </div>
+                    <p style="color: #94a3b8; margin-bottom: 1rem;">Умный кэшбэк и анализ расходов</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Продукт</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#features">Возможности</a></li>
+                        <li><a href="index.html#how-it-works">Как работает</a></li>
+                        <li><a href="downloads/cashup.apk">Скачать</a></li>
+                        <li><a href="faq.html" class="active">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Компания</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="blog.html">Блог</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Правовая информация</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Политика конфиденциальности</a></li>
+                        <li><a href="pdn-policy.html">Политика обработки персональных данных</a></li>
+                        <li><a href="terms.html">Условия использования</a></li>
+                        <li><a href="cookie-policy.html">Cookie</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CashUp!. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ accordion functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Category filtering
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const faqSections = document.querySelectorAll('.faq-section');
+            
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const category = btn.getAttribute('data-category');
+                    
+                    // Update active button
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Show/hide sections
+                    faqSections.forEach(section => {
+                        if (category === 'all' || section.getAttribute('data-category') === category) {
+                            section.style.display = 'block';
+                        } else {
+                            section.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Simple scroll animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Header background on scroll
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
+                    header.style.backdropFilter = 'blur(10px)';
+                } else {
+                    header.style.background = 'white';
+                    header.style.backdropFilter = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

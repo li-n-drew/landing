@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница с Cookie уведомлением</title>
+    <style>
+        /* CSS переменные (добавьте если их нет) */
+        :root {
+            --color-background-tertiary: #f5f5f5;
+            --font-family: Arial, sans-serif;
+        }
+
+        /* Основные стили для Cookie диалога */
+        .CookieDialog {
+            align-items: center;
+            background-color: var(--color-background-tertiary);
+            border-radius: 16px;
+            bottom: 8px;
+            left: 8px;
+            display: flex;
+            flex-direction: row;
+            font-family: var(--font-family);
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            gap: 12px;
+            justify-content: space-between;
+            line-height: 18px;
+            padding: 16px;
+            position: fixed;
+            width: 424px;
+            z-index: 1005;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+        .CookieDialog p {
+            margin: 0;
+            color: #333;
+            flex: 1;
+        }
+
+        /* Адаптивность для планшетов */
+        @media (max-width: 1023px) {
+            .CookieDialog {
+                bottom: 4px;
+                left: 0;
+                margin-left: auto;
+                margin-right: auto;
+                padding-left: 16px;
+                padding-right: 16px;
+                right: 0;
+                width: 500px;
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Адаптивность для мобильных */
+        @media (max-width: 532px) {
+            .CookieDialog {
+                margin-left: 16px;
+                margin-right: 16px;
+                width: auto;
+                bottom: 16px;
+            }
+        }
+
+        /* Стили для кнопки */
+        .SLButtonBox {
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            padding: 8px 16px;
+            font-family: inherit;
+            transition: background-color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn_theme--white {
+            background-color: white;
+            color: #333;
+            border: 1px solid #ccc;
+        }
+
+        .btn_theme--white:hover {
+            background-color: #f0f0f0;
+        }
+
+        .btn_size_m {
+            font-size: 14px;
+            min-height: 32px;
+            min-width: 80px;
+        }
+
+        /* Скрыть диалог по умолчанию */
+        .CookieDialog {
+            display: none;
+        }
+
+        .CookieDialog.show {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <!-- Ваш основной контент страницы -->
+    <div style="padding: 20px;">
+        <h1>Добро пожаловать на наш сайт</h1>
+        <p>Основной контент вашей страницы...</p>
+    </div>
+
+    <!-- Cookie диалог -->
+    <div class="CookieDialog" data-search="CookieDialog">
+        <p>Мы используем файлы cookie для улучшения работы сайта</p>
+        <button class="SLButtonBox btn_theme--white btn_size_m CookieAcceptButton" data-search="CookieAcceptButton">
+            Принять
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const acceptButton = document.querySelector('.CookieAcceptButton');
+            const cookieDialog = document.querySelector('.CookieDialog');
+            
+            // Проверяем, не приняты ли уже cookie
+            if (!getCookie('cookiesAccepted')) {
+                cookieDialog.classList.add('show');
+            }
+            
+            // Обработчик кнопки "Принять"
+            acceptButton.addEventListener('click', function() {
+                // Устанавливаем cookie на 1 год
+                setCookie('cookiesAccepted', 'true', 365);
+                cookieDialog.classList.remove('show');
+            });
+            
+            // Функции для работы с cookie
+            function setCookie(name, value, days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                const expires = "expires=" + date.toUTCString();
+                document.cookie = name + "=" + value + ";" + expires + ";path=/";
+            }
+            
+            function getCookie(name) {
+                const nameEQ = name + "=";
+                const ca = document.cookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+                }
+                return null;
+            }
+        });
+    </script>
+</body>
+</html>
