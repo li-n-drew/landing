@@ -279,24 +279,55 @@
             border-radius: 16px;
             text-align: center;
             border: 1px solid var(--gray-light);
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .contact-item a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-light);
         }
 
         .contact-item i {
             font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+
+        .contact-item:hover i {
+            color: var(--primary-dark);
         }
 
         .contact-item h3 {
             font-size: 1.25rem;
             margin-bottom: 0.5rem;
             color: var(--dark);
+            transition: color 0.3s;
+        }
+
+        .contact-item:hover h3 {
+            color: var(--primary);
         }
 
         .contact-item p {
             color: var(--gray);
+            transition: color 0.3s;
         }
 
+        .contact-item:hover p {
+            color: var(--dark);
+        }
         /* Footer */
         footer {
             background: var(--dark);
@@ -627,19 +658,25 @@
                     
                     <div class="contact-info stagger">
                         <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <h3>Email</h3>
-                            <p>support@cashup-app.ru</p>
+                            <a href="https://mycashup.ru" target="_blank">
+                                <i class="fas fa-globe"></i>
+                                <h3>Официальный сайт</h3>
+                                <p>https://mycashup.ru</p>
+                            </a>
                         </div>
                         <div class="contact-item">
-                            <i class="fab fa-telegram"></i>
-                            <h3>Telegram</h3>
-                            <p>@cash_up_support</p>
+                            <a href="mailto:li4ndrew@yandex.ru">
+                                <i class="fas fa-envelope"></i>
+                                <h3>Email</h3>
+                                <p>support@cashup-app.ru</p>
+                            </a>
                         </div>
                         <div class="contact-item">
-                            <i class="fas fa-comment"></i>
-                            <h3>Форма обратной связи</h3>
-                            <p>На сайте</p>
+                            <a href="https://t.me/cash_up_support" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                                <h3>Telegram</h3>
+                                <p>@cash_up_support</p>
+                            </a>
                         </div>
                     </div>
                 </div>
