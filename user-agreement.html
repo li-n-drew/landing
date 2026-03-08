@@ -349,6 +349,10 @@
             color: #94a3b8;
             font-size: 22px;
             transition: color 0.2s;
+            display: inline-flex;      /* добавить */
+            align-items: center;       /* добавить */
+            justify-content: center;   /* добавить (необязательно) */
+            text-decoration: none;     /* добавить, если нужно убрать подчёркивание */            
         }
 
         .social a:hover {
@@ -721,7 +725,14 @@
                     <p>Умный учёт и анализ кэшбэка ваших карт.</p>
                     <div class="social">
                         <a href="https://t.me/cash_up_support"><i class="fab fa-telegram"></i></a>
-                        <a href="/go-dzen.html" target="_blank" rel="noopener noreferrer" title="Канал на Дзен"><i class="fa-brands fa-y-combinator"></i></a>
+                        <a href="/go-dzen.html" target="_blank" rel="noopener noreferrer" title="Канал на Дзен">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 11.7773C5.525 11.7253 8.05762 11.4291 9.74335 9.74335C11.4291 8.05762 11.7253 5.525 11.7773 1C5.87779 1.11711 1.11711 5.87779 1 11.7773Z"></path>
+                                <path d="M12.4343 1.00621C12.4865 5.52731 12.7832 8.05839 14.4682 9.74335C16.1274 11.4026 18.6072 11.7156 22.9999 11.7746C22.8828 5.94707 18.2348 1.23138 12.4343 1.00621Z"></path>
+                                <path d="M22.9937 12.437C18.6049 12.4962 16.1267 12.8097 14.4682 14.4682C12.8097 16.1267 12.4962 18.6049 12.437 22.9937C18.1658 22.7699 22.7699 18.1658 22.9937 12.437Z"></path>
+                                <path d="M11.7747 22.9999C11.7156 18.6072 11.4026 16.1274 9.74335 14.4682C8.05839 12.7832 5.52731 12.4865 1.00621 12.4343C1.23138 18.2348 5.94709 22.8829 11.7747 22.9999Z"></path>
+                            </svg>
+                        </a>                        
                         <a href="mailto:support@cashup-app.ru"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
