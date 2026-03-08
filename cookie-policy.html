@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js','ym');
+
+        ym(105593053, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/105593053" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Политика использования файлов cookie - CashUP! - Умный кэшбэк и учёт финансов</title>
@@ -8,42 +22,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-        <!-- FAVICON -->
-    <!-- Базовый favicon -->
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    
-    <!-- Для современных браузеров -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-    
-    <!-- Apple Touch Icon (для iOS) -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-    
-    <!-- Android Chrome -->
-  <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/images/icon-512.png">
-    
-    <!-- Manifest для PWA -->
-  <link rel="manifest" href="/images/site.webmanifest">
-    
-    <!-- Цвет theme в браузере -->
-  <meta name="theme-color" content="#6366f1">
-    
-    <!-- Остальные стили и скрипты -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-    
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/images/icon-512.png">
+    <link rel="manifest" href="/images/site.webmanifest">
+    <meta name="theme-color" content="#4361ee">
+
     <style>
+        /* Тот же блок стилей, что и выше */
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --primary-light: #8b5cf6;
-            --secondary: #10b981;
-            --accent: #f59e0b;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --gray: #64748b;
+            --primary: #4361ee;
+            --primary-light: #4895ef;
+            --secondary: #3f37c9;
+            --success: #4cc9f0;
+            --danger: #e63946;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --white: #ffffff;
+            --background: #f5f7fb;
+            --border-radius: 16px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
             --gray-light: #e2e8f0;
+            --accent: #f59e0b;
         }
 
         * {
@@ -66,88 +72,54 @@
             padding: 0 20px;
         }
 
-        /* Header */
-        header {
-            background: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        .fixed-header {
             position: fixed;
-            width: 100%;
             top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .nav {
+            padding: 12px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            flex-wrap: nowrap;
         }
 
-        .logo {
+        .header-logo {
             display: flex;
             align-items: center;
             gap: 10px;
+            color: var(--primary);
             font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--primary);
-            text-decoration: none;
+            font-size: 24px;
+            white-space: nowrap;
         }
 
-        .logo-icon {
-            width: 32px;
-            height: 32px;
+        .header-logo i {
+            font-size: 28px;
+            color: var(--primary);
+        }
+
+        .header-btn {
             background: var(--primary);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a.active {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .cta-button {
-            background: var(--primary);
-            color: white;
+            color: var(--white);
             border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
+            border-radius: 30px;
+            padding: 10px 28px;
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
+            font-size: 16px;
             text-decoration: none;
+            transition: background 0.3s;
             display: inline-block;
+            flex-shrink: 0;
         }
 
-        .cta-button:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        .header-btn:hover {
+            background: var(--secondary);
         }
 
-        /* Page Header */
         .page-header {
             padding: 140px 0 60px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -184,7 +156,6 @@
             z-index: 1;
         }
 
-        /* Document Content */
         .document-content {
             padding: 80px 0;
             background: white;
@@ -259,6 +230,14 @@
             border-radius: 0 8px 8px 0;
         }
 
+        .warning-box {
+            background: #fef3cd;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
         .contact-info {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -321,23 +300,62 @@
         .contact-item:hover p {
             color: var(--dark);
         }
-        /* Footer */
+
         footer {
             background: var(--dark);
             color: white;
-            padding: 60px 0 30px;
+            padding: 48px 0 24px;
         }
 
-        .footer-content {
+        .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
-        .footer-column h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.125rem;
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .footer-logo i {
+            font-size: 32px;
+            color: var(--white);
+        }
+
+        .footer-logo span {
+            font-weight: 700;
+            font-size: 24px;
+            color: white;
+        }
+
+        .footer-col p {
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+
+        .social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social a {
+            color: #94a3b8;
+            font-size: 22px;
+            transition: color 0.2s;
+        }
+
+        .social a:hover {
+            color: white;
+        }
+
+        .footer-col h4 {
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
         }
 
         .footer-links {
@@ -345,78 +363,60 @@
         }
 
         .footer-links li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 12px;
         }
 
         .footer-links a {
             color: #94a3b8;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.2s;
         }
 
         .footer-links a:hover {
             color: white;
         }
 
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-icons a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 1.5rem;
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: white;
-            transform: translateY(-3px);
-        }
-
         .footer-bottom {
-            border-top: 1px solid #334155;
-            padding-top: 2rem;
+            border-top: 1px solid #2d3748;
+            padding-top: 24px;
             text-align: center;
             color: #94a3b8;
+            font-size: 14px;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .fixed-header {
+                padding: 8px 16px;
             }
-
+            .header-logo {
+                font-size: 20px;
+                gap: 6px;
+            }
+            .header-logo i {
+                font-size: 24px;
+            }
+            .header-btn {
+                padding: 8px 20px;
+                font-size: 14px;
+            }
             .page-header h1 {
                 font-size: 2.5rem;
             }
-
             .document-header h1 {
                 font-size: 2rem;
             }
-
-            .footer-content {
+            .footer-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 30px;
             }
-
             .contact-info {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* Animations */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .fade-in {
@@ -435,24 +435,13 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav class="nav">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon">C</div>
-                    CashUp!
-                </a>
-                <ul class="nav-links">
-                    <li><a href="index.html#features">Возможности</a></li>
-                    <li><a href="index.html#how-it-works">Как работает</a></li>
-                    <li><a href="index.html#testimonials">Отзывы</a></li>
-                    <li><a href="about.html">О нас</a></li>
-                    <li><a href="https://dzen.ru/fin_prosto?share_to=link" target="_blank" rel="noopener noreferrer">Блог</a></li>
-                </ul>
-                <a href="https://www.rustore.ru/catalog/app/com.yourcompany.cashup" class="cta-button">Начать использовать</a>
-            </nav>
+    <!-- Фиксированный хедер -->
+    <header class="fixed-header">
+        <div class="header-logo">
+            <i class="fas fa-chart-line"></i>
+            <span>CashUP!</span>
         </div>
+        <a href="https://www.rustore.ru/catalog/app/com.yourcompany.cashup" class="header-btn">Скачать</a>
     </header>
 
     <!-- Page Header -->
@@ -474,6 +463,7 @@
             </div>
             
             <div class="document-body">
+                <!-- Полный текст из файла cookie-policy.html (исходного) -->
                 <div class="document-section fade-in">
                     <h2>1. Общие положения</h2>
                     <p>Настоящая политика описывает, какие файлы cookie могут использоваться на сайте, в приложении CashUp! и сопутствующих веб-сервисах, для каких целей они применяются и какие у пользователя есть варианты управления cookie.</p>
@@ -526,7 +516,6 @@
                 <div class="document-section fade-in">
                     <h2>5. Сторонние cookie</h2>
                     <p>При использовании внешних сервисов аналитики, рекламы или встраиваемого контента (виджеты, карты, видео) на веб-страницах могут устанавливаться cookie третьих лиц. Управление такими cookie производится в соответствии с политиками соответствующих сервисов и настройками браузера пользователя.</p>
-                    <p>Список ключевых сторонних поставщиков (при наличии) с описанием их политики обработки cookie может дополнительно приводиться в отдельном разделе или на странице «Партнёры и провайдеры».</p>
                 </div>
 
                 <div class="document-section fade-in">
@@ -547,7 +536,7 @@
                             </a>
                         </div>
                         <div class="contact-item">
-                            <a href="mailto:li4ndrew@yandex.ru">
+                            <a href="mailto:support@cashup-app.ru">
                                 <i class="fas fa-envelope"></i>
                                 <h3>Email</h3>
                                 <p>support@cashup-app.ru</p>
@@ -569,55 +558,81 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <div class="logo" style="color: white; margin-bottom: 1rem;">
-                        <div class="logo-icon">C</div>
-                        CashUp!
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-chart-line"></i>
+                        <span>CashUP!</span>
                     </div>
-                    <p style="color: #94a3b8; margin-bottom: 1rem;">Умный кэшбэк и анализ расходов</p>
-                    <div class="social-icons">
-                        <a href="https://dzen.ru/fin_prosto" target="_blank" rel="noopener noreferrer" title="Канал на Дзен"><i class="fab fa-yandex"></i></a>                      
+                    <p>Умный учёт и анализ кэшбэка ваших карт.</p>
+                    <div class="social">
+                        <a href="https://dzen.ru/fin_prosto" target="_blank" rel="noopener noreferrer" title="Канал на Дзен"><i class="fab fa-yandex"></i></a>
                         <a href="https://t.me/cash_up_support"><i class="fab fa-telegram"></i></a>
-                        <a href="mailto:support@cashup-app.ru" title="Написать на почту"><i class="fas fa-envelope"></i></a>
+                        <a href="mailto:support@cashup-app.ru"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <div class="footer-column">
-                    <h3>Продукт</h3>
+                <div class="footer-col">
+                    <h4>Продукт</h4>
                     <ul class="footer-links">
-                        <li><a href="index.html#features">Возможности</a></li>
-                        <li><a href="index.html#how-it-works">Как работает</a></li>
-                        <li><a href="downloads/cashup.apk">Скачать</a></li>
+                        <li><a href="https://www.rustore.ru/catalog/app/com.yourcompany.cashup">Скачать</a></li>
                         <li><a href="faq.html">FAQ</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h3>Компания</h3>
-                    <ul class="footer-links">
-                        <li><a href="about.html">О нас</a></li>
-                        <li><a href="https://dzen.ru/fin_prosto?share_to=link" target="_blank" rel="noopener noreferrer">Блог</a></li>
-                        <li><a href="contacts.html">Контакты</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Правовая информация</h3>
+                <div class="footer-col">
+                    <h4>Правовая информация</h4>
                     <ul class="footer-links">
                         <li><a href="privacy-policy.html">Политика конфиденциальности</a></li>
                         <li><a href="pdn-policy.html">Политика обработки персональных данных</a></li>
                         <li><a href="user-agreement.html">Пользовательское соглашение</a></li>
-                        <li><a href="cookie-policy.html" class="active">Cookie</a></li>
+                        <li><a href="cookie-policy.html">Cookie</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:support@cashup-app.ru">E-mail</a></li>
+                        <li><a href="https://t.me/cash_up_support">Telegram</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 CashUp!. Все права защищены.</p>
+                <p>&copy; 2025-2026 CashUP!. Все права защищены.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Cookie consent banner -->
+    <div id="cookie-banner" style="display: none; position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 400px; background: white; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); padding: 15px 20px; z-index: 1000; font-family: 'Inter', sans-serif;">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+            <p style="margin: 0; font-size: 14px; color: #1e293b;">Мы используем файлы cookie для улучшения работы сайта. Продолжая пользоваться сайтом, вы соглашаетесь с <a href="cookie-policy.html" style="color: #6366f1; text-decoration: none;">Политикой использования cookie</a>.</p>
+            <button id="cookie-accept" style="background: #6366f1; color: white; border: none; border-radius: 30px; padding: 8px 20px; font-weight: 600; cursor: pointer; white-space: nowrap;">Понятно</button>
+        </div>
+    </div>
+
+    <script src="js/cookie-consent.js"></script>
+
+    <!-- Скрипт для embed-режима -->
+    <script>
+        (function() {
+            if (window.location.search.includes('embed=1') || window.location.search.includes('noheader=1')) {
+                const header = document.querySelector('.fixed-header');
+                if (header) header.style.display = 'none';
+
+                const footer = document.querySelector('footer');
+                if (footer) footer.style.display = 'none';
+
+                const pageHeader = document.querySelector('.page-header');
+                if (pageHeader) pageHeader.style.display = 'none';
+
+                const content = document.querySelector('.document-content');
+                if (content) content.style.paddingTop = '20px';
+            }
+        })();
+    </script>
+
+    <!-- Скрипт для анимаций -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Simple scroll animation
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -631,28 +646,12 @@
                 });
             }, observerOptions);
 
-            // Observe all sections
             document.querySelectorAll('section').forEach(section => {
                 observer.observe(section);
             });
 
-            // Smooth scroll for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-
-            // Header background on scroll
             window.addEventListener('scroll', function() {
-                const header = document.querySelector('header');
+                const header = document.querySelector('.fixed-header');
                 if (window.scrollY > 100) {
                     header.style.background = 'rgba(255, 255, 255, 0.95)';
                     header.style.backdropFilter = 'blur(10px)';
