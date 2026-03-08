@@ -8,30 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- FAVICON -->
-    <!-- Базовый favicon -->
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    
-    <!-- Для современных браузеров -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-    
-    <!-- Apple Touch Icon (для iOS) -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-    
-    <!-- Android Chrome -->
-  <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/images/icon-512.png">
-    
-    <!-- Manifest для PWA -->
-  <link rel="manifest" href="/images/site.webmanifest">
-    
-    <!-- Цвет theme в браузере -->
-  <meta name="theme-color" content="#6366f1">
-    
-    <!-- Остальные стили и скрипты -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-    
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/mobile.css">
     <style>
         :root {
             --primary: #6366f1;
@@ -345,7 +323,7 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
+            header .nav-links {
                 display: none;
             }
 
@@ -403,17 +381,30 @@
                     <div class="logo-icon">C</div>
                     CashUp!
                 </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Открыть меню"><i class="fas fa-bars"></i></button>
                 <ul class="nav-links">
                     <li><a href="index.html#features">Возможности</a></li>
                     <li><a href="index.html#how-it-works">Как работает</a></li>
                     <li><a href="index.html#testimonials">Отзывы</a></li>
                     <li><a href="about.html">О нас</a></li>
-                    <li><a href="https://dzen.ru/fin_prosto?share_to=link" target="_blank" rel="noopener noreferrer">Блог</a></li>
+                    <li><a href="blog.html">Блог</a></li>
                 </ul>
-                <a href="https://www.rustore.ru/catalog/app/com.yourcompany.cashup" class="cta-button">Начать использовать</a>
+                <a href="downloads/cashup.apk" download class="cta-button">Начать использовать</a>
             </nav>
         </div>
     </header>
+
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="nav-links">
+            <li><a href="index.html#features">Возможности</a></li>
+            <li><a href="index.html#how-it-works">Как работает</a></li>
+            <li><a href="index.html#testimonials">Отзывы</a></li>
+            <li><a href="about.html">О нас</a></li>
+            <li><a href="blog.html">Блог</a></li>
+        </ul>
+        <a href="downloads/cashup.apk" download class="cta-button">Начать использовать</a>
+    </div>
 
     <!-- Page Header -->
     <section class="page-header">
@@ -492,12 +483,12 @@
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
                             <h3>Email</h3>
-                            <p>support@cashup-app.ru</p>
+                            <p>li4ndrew@yandex.ru</p>
                         </div>
                         <div class="contact-item">
                             <i class="fab fa-telegram"></i>
                             <h3>Telegram</h3>
-                            <p>@cash_up_support</p>
+                            <p>@li4ndrew</p>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-comment"></i>
@@ -521,9 +512,9 @@
                     </div>
                     <p style="color: #94a3b8; margin-bottom: 1rem;">Умный кэшбэк и анализ расходов</p>
                     <div class="social-icons">
-                        <a href="https://dzen.ru/fin_prosto" target="_blank" rel="noopener noreferrer" title="Канал на Дзен"><i class="fab fa-yandex"></i></a>                      
-                        <a href="https://t.me/cash_up_support"><i class="fab fa-telegram"></i></a>
-                        <a href="mailto:support@cashup-app.ru" title="Написать на почту"><i class="fas fa-envelope"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -531,7 +522,7 @@
                     <ul class="footer-links">
                         <li><a href="index.html#features">Возможности</a></li>
                         <li><a href="index.html#how-it-works">Как работает</a></li>
-                        <li><a href="https://www.rustore.ru/catalog/app/com.yourcompany.cashup">Скачать</a></li>
+                        <li><a href="downloads/cashup.apk" download>Скачать</a></li>
                         <li><a href="faq.html">FAQ</a></li>
                     </ul>
                 </div>
@@ -539,8 +530,8 @@
                     <h3>Компания</h3>
                     <ul class="footer-links">
                         <li><a href="about.html">О нас</a></li>
-                        <li><a href="https://dzen.ru/fin_prosto?share_to=link" target="_blank" rel="noopener noreferrer">Блог</a></li>
-                        <li><a href="contacts.html">Контакты</a></li>
+                        <li><a href="blog.html">Блог</a></li>
+                        <li><a href="#contact">Контакты</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -548,7 +539,7 @@
                     <ul class="footer-links">
                         <li><a href="privacy-policy.html">Политика конфиденциальности</a></li>
                         <li><a href="pdn-policy.html">Политика обработки персональных данных</a></li>
-                        <li><a href="user-agreement.html">Пользовательское соглашение</a></li>
+                        <li><a href="terms.html">Условия использования</a></li>
                         <li><a href="cookie-policy.html">Cookie</a></li>
                     </ul>
                 </div>
@@ -607,5 +598,6 @@
             });
         });
     </script>
+    <script src="js/mobile-nav.js"></script>
 </body>
 </html>
