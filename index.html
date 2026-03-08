@@ -14,17 +14,16 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/105593053" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
-   
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CashUP! - Умный кэшбэк и учёт финансов</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>CashUP! — умный кэшбэк</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/cookie-dialog.css">
-        
-
+    
+    
     <!-- FAVICON -->
     <!-- Базовый favicon -->
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
@@ -49,120 +48,94 @@
     <!-- Остальные стили и скрипты -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    
     <style>
-        :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --primary-light: #8b5cf6;
-            --secondary: #10b981;
-            --accent: #f59e0b;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --gray-light: #e2e8f0;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #6366f1;
+            --primary-light: #8b5cf6;
+            --secondary: #3f37c9;
+            --success: #4cc9f0;
+            --danger: #e63946;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --white: #ffffff;
+            --background: #f5f7fb;
+            --border-radius: 16px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            background-color: var(--background);
             color: var(--dark);
-            background: var(--light);
-            overflow-x: hidden;
+            line-height: 1.5;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 16px;
         }
 
-        /* Header */
-        header {
-            background: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        /* Фиксированный хедер */
+        .fixed-header {
             position: fixed;
-            width: 100%;
             top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .nav {
+            padding: 12px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            flex-wrap: nowrap;
         }
 
-        .logo {
+        .header-logo {
             display: flex;
             align-items: center;
             gap: 10px;
+            color: var(--primary);
             font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--primary);
-            text-decoration: none;
+            font-size: 24px;
+            white-space: nowrap;
         }
 
-        .logo-icon {
-            width: 32px;
-            height: 32px;
-            background: var(--primary);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
+        .header-logo i {
+            font-size: 28px;
             color: var(--primary);
         }
 
-        .cta-button {
+        .header-btn {
             background: var(--primary);
-            color: white;
+            color: var(--white);
             border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
+            border-radius: 30px;
+            padding: 10px 28px;
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
+            font-size: 16px;
             text-decoration: none;
+            transition: background 0.3s;
             display: inline-block;
+            flex-shrink: 0;
         }
 
-        .cta-button:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        .header-btn:hover {
+            background: var(--secondary);
         }
 
         /* Hero Section */
         .hero {
-            padding: 120px 0 80px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 0 0 60px;
             color: white;
             position: relative;
             overflow: hidden;
@@ -181,14 +154,15 @@
         .hero-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 3rem;
             align-items: center;
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            padding-top: 100px;
         }
 
         .hero-text h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 1.5rem;
@@ -197,7 +171,7 @@
         .hero-text p {
             font-size: 1.25rem;
             margin-bottom: 2rem;
-            opacity: 0.9;
+            opacity: 0.95;
         }
 
         .hero-buttons {
@@ -206,292 +180,262 @@
             flex-wrap: wrap;
         }
 
+        .cta-button {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
         .btn-secondary {
             background: transparent;
-            border: 2px solid white;
-            color: white;
+            border: 2px solid var(--white);
+            color: var(--white);
         }
 
         .btn-secondary:hover {
-            background: white;
+            background: var(--white);
             color: var(--primary);
         }
 
-        .hero-image {
-            position: relative;
-        }
-
+        /* Мокап телефона */
         .phone-mockup {
-            background: white;
+            background: var(--white);
             border-radius: 30px;
             padding: 15px;
             box-shadow: 0 25px 50px rgba(0,0,0,0.3);
             transform: perspective(1000px) rotateY(-15deg) rotateX(5deg);
-            transition: transform 0.5s;
+            transition: transform 0.3s;
+            max-width: 500px;
+            margin-left: auto;
         }
 
         .phone-mockup:hover {
-            transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+            transform: none; /* При наведении на десктопе выравнивание */
         }
 
         .phone-screen {
-            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            background: var(--background);
             border-radius: 20px;
-            height: 520px; /* Увеличил высоту для лучшего отображения */
-            position: relative;
+            height: 520px;
             overflow: hidden;
-        }
-
-        .screen-content {
-            padding: 20px;
-            height: 100%;
+            padding: 12px;
             display: flex;
             flex-direction: column;
+            gap: 12px;
         }
 
-        .app-header {
+        /* Стили элементов внутри мокапа (как в приложении) */
+        .app-header-mock {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            padding: 4px 0;
         }
 
-        .app-logo {
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        /* Кэшбэк блок как в прототипе */
-        .balance-card {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white;
-            padding: 25px 25px 35px 25px; /* Увеличил нижний padding для текста */
-            border-radius: 16px;
-            margin-bottom: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .balance-card::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .balance-label {
-            opacity: 0.9;
-            font-size: 0.9rem;
-        }
-
-        .balance-amount {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin: 10px 0;
-        }
-
-        /* Блок поиска лучшей карты */
-        .search-card {
-            background: white;
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        .search-card h3 {
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .search-form {
-            display: flex;
-            gap: 10px;
-        }
-
-        .search-input {
-            flex: 1;
-            padding: 12px 15px;
-            border: 1px solid var(--gray-light);
-            border-radius: 8px;
-            font-size: 0.9rem;
-        }
-
-        .search-button {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .search-button:hover {
-            background: var(--primary-dark);
-        }
-
-        /* Рекомендация */
-        .recommendation {
-            background: rgba(16, 185, 129, 0.1);
-            border-left: 4px solid var(--secondary);
-            padding: 15px;
-            border-radius: 0 8px 8px 0;
-            margin-top: auto;
-        }
-
-        .recommendation-title {
-            font-weight: 600;
-            margin-bottom: 8px;
+        .app-logo-mock {
             display: flex;
             align-items: center;
             gap: 8px;
-            color: var(--dark);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 20px;
         }
 
-        /* Trust Section */
-        .trust {
-            padding: 80px 0;
-            background: white;
+        .app-logo-mock i {
+            font-size: 22px;
         }
 
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
+        .app-icons-mock {
+            display: flex;
+            gap: 12px;
+            color: var(--gray);
+            font-size: 18px;
         }
 
-        .trust-item {
-            text-align: center;
-            padding: 2rem 1rem;
+        .card-mock {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 16px;
+            box-shadow: var(--shadow);
         }
 
-        .trust-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--primary);
-            border-radius: 20px;
+        .balance-card-mock {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+        }
+
+        .balance-header-mock {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .balance-amount-mock {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 8px 0;
+        }
+
+        .best-category-mock {
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            color: white;
-            font-size: 2rem;
+            gap: 6px;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 13px;
         }
 
-        .trust-item h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
+        .search-section-mock .form-label {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            display: block;
             color: var(--dark);
         }
 
-        .trust-item p {
+        .category-select-mock {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--border-radius);
+            padding: 12px 16px;
+            background: var(--white);
+            font-size: 16px;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .category-select-mock span {
             color: var(--gray);
-            line-height: 1.6;
         }
 
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background: var(--light);
+        .btn-primary-mock {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 14px;
+            font-weight: 600;
+            font-size: 16px;
+            width: 100%;
+            cursor: pointer;
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
+        .recommendation-mock {
+            background: rgba(76, 201, 240, 0.1);
+            border-left: 4px solid var(--success);
+            padding: 12px;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
         }
 
-        .section-header h2 {
-            font-size: 2.5rem;
+        .recommendation-title-mock {
+            font-weight: 600;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Продающие блоки */
+        .section {
+            padding: 60px 0 30px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            text-align: center;
+            margin-bottom: 16px;
             color: var(--dark);
         }
 
-        .section-header p {
+        .section-subtitle {
             font-size: 1.125rem;
             color: var(--gray);
+            text-align: center;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0 auto 40px;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
         }
 
         .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid var(--gray-light);
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s;
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
         .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--primary);
+            width: 64px;
+            height: 64px;
+            background: rgba(67, 97, 238, 0.1);
             border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
-            color: white;
-            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 28px;
         }
 
         .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
         }
 
         .feature-card p {
             color: var(--gray);
+            line-height: 1.6;
         }
 
-        /* How It Works */
-        .how-it-works {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .steps {
+        .steps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
             counter-reset: step;
         }
 
         .step {
-            background: var(--light);
-            padding: 2rem;
-            border-radius: 15px;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 32px 20px 20px;
+            box-shadow: var(--shadow);
             position: relative;
-            border: 1px solid var(--gray-light);
+            text-align: center;
         }
 
         .step::before {
             counter-increment: step;
             content: counter(step);
             position: absolute;
-            top: -20px;
+            top: -15px;
             left: 50%;
             transform: translateX(-50%);
             width: 40px;
@@ -503,106 +447,142 @@
             align-items: center;
             justify-content: center;
             font-weight: 700;
+            font-size: 18px;
         }
 
         .step h3 {
-            text-align: center;
-            margin: 1rem 0;
-            color: var(--dark);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 8px;
         }
 
-        /* Testimonials */
-        .testimonials {
-            padding: 80px 0;
-            background: var(--light);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid var(--gray-light);
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-        }
-
-        .author-info h4 {
-            color: var(--dark);
-            margin-bottom: 0.25rem;
-        }
-
-        .author-info p {
+        .step p {
             color: var(--gray);
-            font-size: 0.875rem;
+            font-size: 0.95rem;
         }
 
-        /* CTA Section */
-        .cta-section {
-            padding: 80px 0;
-            background: var(--primary);
-            color: white;
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .benefit {
             text-align: center;
         }
 
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .benefit i {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 16px;
         }
 
-        .cta-section p {
+        .benefit h4 {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .benefit p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .cta-section {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-top: 40px;
+        }
+
+        .cta-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-text {
             font-size: 1.125rem;
-            margin-bottom: 2rem;
             opacity: 0.9;
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 30px;
+        }
+
+        .btn-cta {
+            background: white;
+            color: var(--primary);
+            border: none;
+            border-radius: 40px;
+            padding: 16px 48px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-cta:hover {
+            background: rgba(255,255,255,0.9);
+            transform: scale(1.05);
         }
 
         /* Footer */
         footer {
             background: var(--dark);
             color: white;
-            padding: 60px 0 30px;
+            padding: 48px 0 24px;
         }
 
-        .footer-content {
+        .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
-        .footer-column h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.125rem;
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .footer-logo i {
+            font-size: 32px;
+            color: var(--white);
+        }
+
+        .footer-logo span {
+            font-weight: 700;
+            font-size: 24px;
+            color: white;
+        }
+
+        .footer-col p {
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+
+        .social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social a {
+            color: #94a3b8;
+            font-size: 22px;
+            transition: color 0.2s;
+        }
+
+        .social a:hover {
+            color: white;
+        }
+
+        .footer-col h4 {
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
         }
 
         .footer-links {
@@ -610,137 +590,142 @@
         }
 
         .footer-links li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 12px;
         }
 
         .footer-links a {
             color: #94a3b8;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.2s;
         }
 
         .footer-links a:hover {
             color: white;
         }
 
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-icons a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 1.5rem;
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: white;
-            transform: translateY(-3px);
-        }
-
         .footer-bottom {
-            border-top: 1px solid #334155;
-            padding-top: 2rem;
+            border-top: 1px solid #2d3748;
+            padding-top: 24px;
             text-align: center;
             color: #94a3b8;
+            font-size: 14px;
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .trust-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
+        /* Cookie banner */
+        #cookie-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 15px 20px;
+            max-width: 400px;
+            margin: 0 auto;
+            z-index: 1000;
+            display: none;
+        }
+
+        @media (min-width: 769px) {
+            #cookie-banner {
+                left: 20px;
+                right: auto;
+                margin: 0;
             }
         }
 
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
+        /* Планшеты (769px – 1024px): две колонки, небольшая коррекция размеров */
+        @media (min-width: 769px) and (max-width: 1024px) {
             .hero-text h1 {
                 font-size: 2.5rem;
             }
-
-            .phone-mockup {
-                transform: none;
-                max-width: 300px;
-                margin: 0 auto;
-            }
-
-            .trust-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
+            .hero-content {
                 gap: 2rem;
             }
+            .phone-mockup {
+                max-width: 400px;
+            }
+        }
 
+        /* Мобильные устройства (≤768px): одна колонка, прямой мокап, уменьшенный хедер */
+        @media (max-width: 768px) {
+            .fixed-header {
+                padding: 8px 16px;
+            }
+            .header-logo {
+                font-size: 20px;
+                gap: 6px;
+                white-space: nowrap;
+            }
+            .header-logo i {
+                font-size: 24px;
+            }
+            .header-btn {
+                padding: 8px 20px;
+                font-size: 14px;
+            }
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 70px;
+            }
+            .hero-text h1 {
+                font-size: 2rem;
+            }
             .hero-buttons {
                 justify-content: center;
             }
-            
-            .search-form {
-                flex-direction: column;
+            .phone-mockup {
+                max-width: 360px;
+                margin: 0 auto;
+                transform: none; /* Убираем наклон */
+            }
+            .phone-mockup:hover {
+                transform: scale(1.05); /* Только масштаб при наведении */
+            }
+            .phone-screen {
+                height: 520px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            /* Вертикальное расположение карточек в блоке "Для кого" */
+            .features-grid[style*="repeat(3,1fr)"] {
+                grid-template-columns: 1fr !important;
             }
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
+        /* Утилиты */
         .fade-in {
-            animation: fadeInUp 0.6s ease-out;
+            animation: fadeIn 1s ease-in-out;
         }
 
-        .stagger > * {
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        .stagger > *:nth-child(1) { animation-delay: 0.1s; }
-        .stagger > *:nth-child(2) { animation-delay: 0.2s; }
-        .stagger > *:nth-child(3) { animation-delay: 0.3s; }
-        .stagger > *:nth-child(4) { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav class="nav">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon">C</div>
-                    CashUp!
-                </a>
-                <ul class="nav-links">
-                    <li><a href="#features">Возможности</a></li>
-                    <li><a href="#how-it-works">Как работает</a></li>
-                    <li><a href="#testimonials">Отзывы</a></li>
-                    <li><a href="about.html">О нас</a></li>
-                    <li><a href="https://dzen.ru/fin_prosto?share_to=link" target="_blank" rel="noopener noreferrer">Блог</a></li>
-                </ul>
-                <a href="https://www.rustore.ru/catalog/app/com.yourcompany.cashup" download class="cta-button">Начать использовать</a>
-            </nav>
+    <!-- Фиксированный хедер -->
+    <header class="fixed-header">
+        <div class="header-logo">
+            <i class="fas fa-chart-line"></i>
+            <span>CashUP!</span>
         </div>
+        <a href="https://www.rustore.ru/catalog/app/com.yourcompany.cashup" download class="header-btn">Скачать</a>
     </header>
 
     <!-- Hero Section -->
@@ -748,48 +733,65 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text fade-in">
-                    <h1>Умный кэшбэк и анализ расходов</h1>
+                    <h1>Все карты с кэшбэком — в одном приложении</h1>
                     <p>Получайте максимум выгоды с каждой покупки, используя рекомендации приложения</p>
                     <div class="hero-buttons">
-                        <a href="https://www.rustore.ru/catalog/app/com.yourcompany.cashup" download class="cta-button">Скачать CashUp!</a>
+                        <a href="https://www.rustore.ru/catalog/app/com.yourcompany.cashup" download class="cta-button">Скачать CashUP!</a>
                         <a href="#features" class="cta-button btn-secondary">Узнать больше</a>
                     </div>
                 </div>
                 <div class="hero-image fade-in">
                     <div class="phone-mockup">
                         <div class="phone-screen">
-                            <div class="screen-content">
-                                <div class="app-header">
-                                    <div class="app-logo">CashUp!</div>
-                                    <div style="color: var(--gray);">14:20</div>
+                            <!-- Шапка приложения (внутри мокапа) -->
+                            <div class="app-header-mock">
+                                <div class="app-logo-mock">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>CashUP!</span>
                                 </div>
-                                
-                                <!-- Блок кэшбэка как в прототипе -->
-                                <div class="balance-card">
-                                    <div class="balance-label">Ваш кэшбэк за месяц</div>
-                                    <div class="balance-amount">1 847 ₽</div>
-                                    <div class="balance-label">+15% к прошлому месяцу</div>
+                                <div class="app-icons-mock">
+                                    <i class="far fa-bell"></i>
+                                    <i class="far fa-user"></i>
                                 </div>
-                                
-                                <!-- Блок поиска лучшей карты -->
-                                <div class="search-card">
-                                    <h3>Поиск лучшей карты</h3>
-                                    <div class="search-form">
-                                        <input type="text" class="search-input" placeholder="Введите категорию...">
-                                        <button class="search-button">Найти</button>
+                            </div>
+
+                            <!-- Карточка баланса -->
+                            <div class="card-mock balance-card-mock">
+                                <div class="balance-header-mock">
+                                    <span>Ваш кэшбэк за месяц</span>
+                                    <i class="far fa-question-circle"></i>
+                                </div>
+                                <div class="balance-amount-mock">1 847 ₽</div>
+                                <div style="font-size: 14px; opacity: 0.9;">+15% к прошлому месяцу</div>
+                                <div class="best-category-mock">
+                                    <i class="fas fa-trophy"></i>
+                                    <span>Лучшая категория: Супермаркеты (320 ₽)</span>
+                                </div>
+                            </div>
+
+                            <!-- Поиск лучшей карты -->
+                            <div class="card-mock">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                                    <span style="font-weight: 600;">Поиск лучшей карты</span>
+                                    <i class="far fa-question-circle" style="color: var(--gray);"></i>
+                                </div>
+                                <div class="search-section-mock">
+                                    <div class="form-label">Выберите категорию</div>
+                                    <div class="category-select-mock">
+                                        <span>Супермаркеты</span>
+                                        <i class="fas fa-chevron-down" style="color: var(--gray);"></i>
                                     </div>
+                                    <button class="btn-primary-mock">Найти лучшую карту</button>
                                 </div>
-                                
-                                <!-- Рекомендация -->
-                                <div class="recommendation">
-                                    <div class="recommendation-title">
-                                        <i class="fas fa-lightbulb"></i>
-                                        Рекомендация на сегодня
-                                    </div>
-                                    <div style="font-size: 0.875rem; color: var(--dark);">
-                                        Используйте Тинькофф Black — до 10% кэшбэка в супермаркетах
-                                    </div>
+                            </div>
+
+                            <!-- Рекомендация на сегодня -->
+                            <div class="recommendation-mock">
+                                <div class="recommendation-title-mock">
+                                    <i class="fas fa-lightbulb" style="color: var(--success);"></i>
+                                    <span>Лучшая карта для покупок</span>
                                 </div>
+                                <div style="font-size: 13px;">Используйте Supreme Card (Т-Банк) — до 5% кэшбэка в супермаркетах</div>
                             </div>
                         </div>
                     </div>
@@ -798,190 +800,172 @@
         </div>
     </section>
 
-    <!-- Trust Section -->
-    <section class="trust">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Почему можно доверять CashUp!</h2>
-                <p>Мы создали приложение, которое станет вашим надежным финансовым помощником</p>
-            </div>
-            <div class="trust-grid stagger">
-                <div class="trust-item">
-                    <div class="trust-icon">
-                        <i class="fas fa-user-check"></i>
-                    </div>
-                    <h3>Личная ответственность</h3>
-                    <p>Разработчик лично тестирует каждую функцию перед выпуском</p>
+    <!-- Блок "Для кого" -->
+    <div class="container">
+        <div class="section">
+            <h2 class="section-title">Для кого это приложение</h2>
+            <p class="section-subtitle">Если у вас больше одной карты с кэшбэком — CashUP! поможет получать максимум</p>
+            <div class="features-grid" style="grid-template-columns: repeat(3,1fr);">
+                <div class="feature-card" style="text-align: center;">
+                    <div class="feature-icon" style="margin: 0 auto 20px;"><i class="fas fa-credit-card"></i></div>
+                    <h3>2+ карты</h3>
+                    <p>Объедините все карты в одном месте и узнавайте, какая выгоднее прямо сейчас.</p>
                 </div>
-                <div class="trust-item">
-                    <div class="trust-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Финансовый опыт</h3>
-                    <p>10+ лет опыта в финансовой сфере для создания эффективных решений</p>
+                <div class="feature-card" style="text-align: center;">
+                    <div class="feature-icon" style="margin: 0 auto 20px;"><i class="fas fa-percent"></i></div>
+                    <h3>Запутались в процентах</h3>
+                    <p>Перестаньте держать в голове категории и проценты — приложение всё посчитает само.</p>
                 </div>
-                <div class="trust-item">
-                    <div class="trust-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <h3>Безопасность данных</h3>
-                    <p>Данные карт хранятся только на вашем устройстве</p>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <h3>Прямая связь</h3>
-                    <p>Личные ответы разработчика на все вопросы</p>
+                <div class="feature-card" style="text-align: center;">
+                    <div class="feature-icon" style="margin: 0 auto 20px;"><i class="fas fa-chart-pie"></i></div>
+                    <h3>Хотите больше выгоды</h3>
+                    <p>Планируйте расходы и получайте максимальный кэшбэк с каждой покупки.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Возможности приложения</h2>
-                <p>Все функции, которые уже доступны в CashUp!</p>
-            </div>
-            <div class="features-grid stagger">
+    <!-- Возможности -->
+    <div class="container" id="features">
+        <div class="section">
+            <h2 class="section-title">Возможности приложения</h2>
+            <p class="section-subtitle">Всё, что нужно для умного управления кэшбэком</p>
+            <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3>Умный поиск карт</h3>
-                    <p>Найдите лучшую карту для любой категории покупок за секунды. Просто выберите категорию и получите рекомендацию.</p>
+                    <div class="feature-icon"><i class="fas fa-credit-card"></i></div>
+                    <h3>Учёт всех карт</h3>
+                    <p>Добавьте карты любых банков, укажите проценты по категориям кэшбэка для каждой из них.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-credit-card"></i>
-                    </div>
-                    <h3>Управление картами</h3>
-                    <p>Добавляйте все ваши банковские карты и настраивайте категории кэшбэка для каждой из них.</p>
+                    <div class="feature-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3>Мгновенное сравнение</h3>
+                    <p>Выберите категорию и увидите, какая карта даст максимальный кэшбэк прямо сейчас.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
+                    <div class="feature-icon"><i class="fas fa-calculator"></i></div>
+                    <h3>Планирование расходов</h3>
+                    <p>Введите планируемую сумму — узнайте потенциальный кэшбэк и лучшую карту для трат.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
                     <h3>Детальная статистика</h3>
-                    <p>Отслеживайте ваш кэшбэк по месяцам и категориям. Анализируйте эффективность использования карт.</p>
+                    <p>Анализируйте кэшбэк по месяцам и категориям, находите самые выгодные направления.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3>Персональные рекомендации</h3>
-                    <p>Получайте ежедневные советы по использованию карт для максимального кэшбэка.</p>
+                    <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h3>Уведомления по геолокации</h3>
+                    <p>Включите геолокацию — приложение подскажет о выгодных категориях рядом (20 городов).</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-tags"></i>
-                    </div>
-                    <h3>Популярные категории</h3>
-                    <p>Быстрый доступ к самым востребованным категориям: супермаркеты, АЗС, рестораны и другие.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Удобный интерфейс</h3>
-                    <p>Интуитивно понятный дизайн, адаптированный для мобильных устройств.</p>
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Полная безопасность</h3>
+                    <p>Данные о картах не покидают ваш телефон. Мы не видим ваши деньги и не проводим платежи.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- How It Works -->
-    <section id="how-it-works" class="how-it-works">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Как это работает</h2>
-                <p>Всего 3 простых шага к умному управлению финансами</p>
-            </div>
-            <div class="steps stagger">
+    <!-- Как работает -->
+    <div class="container">
+        <div class="section">
+            <h2 class="section-title">Как это работает</h2>
+            <p class="section-subtitle">Три шага к максимальному кэшбэку</p>
+            <div class="steps-grid">
                 <div class="step">
                     <h3>Добавьте карты</h3>
-                    <p>Внесите информацию о ваших банковских картах и условиях кэшбэка</p>
+                    <p>Внесите названия карт, банки и проценты кэшбэка по категориям.</p>
                 </div>
                 <div class="step">
                     <h3>Совершайте покупки</h3>
-                    <p>Приложение подскажет лучшую карту для каждой категории трат</p>
+                    <p>Перед оплатой загляните в приложение — оно подскажет лучшую карту.</p>
                 </div>
                 <div class="step">
-                    <h3>Экономьте больше</h3>
-                    <p>Получайте максимальный кэшбэк</p>
+                    <h3>Анализируйте и экономьте</h3>
+                    <p>Смотрите статистику, планируйте траты и получайте реальную выгоду.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Testimonials -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Начните экономить сегодня</h2>
-                <p>Присоединяйтесь к сообществу пользователей, которые уже получают максимальный кэшбэк с каждой покупки!</p>
-            </div>
-            <div class="testimonials-grid stagger">
-                
-                    </div>
+    <!-- Преимущества -->
+    <div class="container">
+        <div class="section">
+            <h2 class="section-title">Почему стоит выбрать CashUP!</h2>
+            <p class="section-subtitle">Мы создали приложение, которое станет вашим финансовым помощником</p>
+            <div class="benefits-grid">
+                <div class="benefit">
+                    <i class="fas fa-wallet"></i>
+                    <h4>Удобство</h4>
+                    <p>Всё необходимое в одном приложении: карты, категории, справочник МСС</p>
+                </div>
+                <div class="benefit">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Объективность</h4>
+                    <p>Не рекламируем банки, показываем реальные условия ваших карт.</p>
+                </div>
+                <div class="benefit">
+                    <i class="fas fa-magic"></i>
+                    <h4>Простота</h4>
+                    <p>Ничего лишнего — только то, что помогает экономить.</p>
+                </div>
+                <div class="benefit">
+                    <i class="fas fa-infinity"></i>
+                    <h4>Бесплатно навсегда</h4>
+                    <p>Никаких подписок и скрытых платежей.</p>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Призыв к действию -->
+    <section class="cta-section">
+        <h2 class="cta-title">Начните экономить уже сегодня</h2>
+        <p class="cta-text">Присоединяйтесь к сообществу пользователей, которые уже получают максимальный кэшбэк с каждой покупки</p>
+        <a href="https://www.rustore.ru/catalog/app/com.yourcompany.cashup" download class="btn-cta">Скачать CashUP!</a>
     </section>
 
-   <!-- Footer -->
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <div class="logo" style="color: white; margin-bottom: 1rem;">
-                        <div class="logo-icon">C</div>
-                        CashUp!
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-chart-line"></i>
+                        <span>CashUP!</span>
                     </div>
-                    <p style="color: #94a3b8; margin-bottom: 1rem;">Умный кэшбэк и анализ расходов</p>
-                    <div class="social-icons">
-                        <a href="https://dzen.ru/fin_prosto" target="_blank" rel="noopener noreferrer" title="Канал на Дзен">
-                            <i class="fab fa-yandex"></i>
-                        </a>                      
-                        <a href="https://t.me/cash_up_support">
-                            <i class="fab fa-telegram"></i>
-                        </a>
-                        <a href="mailto:support@cashup-app.ru" title="Написать на почту">
-                            <i class="fas fa-envelope"></i>
-                        </a>
+                    <p>Умный учёт и анализ кэшбэка ваших карт.</p>
+                    <div class="social">
+                        <a href="https://t.me/cash_up_support"><i class="fab fa-telegram"></i></a>
+                        <a href="/go-dzen.html" target="_blank" rel="noopener noreferrer" title="Канал на Дзен"><i class="fa-brands fa-y-combinator"></i></a>
+                        <a href="mailto:support@cashup-app.ru"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <div class="footer-column">
-                    <h3>Продукт</h3>
+                <div class="footer-col">
+                    <h4>Продукт</h4>
                     <ul class="footer-links">
-                        <li><a href="#features">Возможности</a></li>
-                        <li><a href="#how-it-works">Как работает</a></li>
                         <li><a href="https://www.rustore.ru/catalog/app/com.yourcompany.cashup" download>Скачать</a></li>
                         <li><a href="faq.html" target="_blank">FAQ</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h3>Компания</h3>
+                <div class="footer-col">
+                    <h4>Правовая информация</h4>
                     <ul class="footer-links">
-                        <li><a href="about.html">О нас</a></li>
-                        <li><a href="https://dzen.ru/fin_prosto?share_to=link" target="_blank" rel="noopener noreferrer">Блог</a></li>
-                        <li><a href="contacts.html">Контакты</a></li>
+                        <li><a href="privacy-policy.html?embed=1" target="_blank">Политика конфиденциальности</a></li>
+                        <li><a href="pdn-policy.html?embed=1" target="_blank">Политика обработки персональных данных</a></li>
+                        <li><a href="user-agreement.html?embed=1" target="_blank">Пользовательское соглашение</a></li>
+                        <li><a href="cookie-policy.html?embed=1" target="_blank">Cookie</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h3>Правовая информация</h3>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
                     <ul class="footer-links">
-                        <li><a href="privacy-policy.html">Политика конфиденциальности</a></li>
-                        <li><a href="pdn-policy.html">Политика обработки персональных данных</a></li>
-                        <li><a href="user-agreement.html">Пользовательское соглашение</a></li>
-                        <li><a href="cookie-policy.html">Cookie</a></li>
+                        <li><a href="mailto:support@cashup-app.ru">E-mail</a></li>
+                        <li><a href="https://t.me/cash_up_support">Telegram</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 CashUp!. Все права защищены.</p>
+                <p>&copy; 2025-2026 CashUP!. Все права защищены.</p>
             </div>
         </div>
     </footer>
@@ -1047,15 +1031,33 @@
                 });
             }
         });
-    </script>
-                <!-- Cookie Dialog -->
-        <div class="CookieDialog" id="cookieDialog">
-            <div class="cookie-content">
-                <p>Продолжая пользоваться сайтом, я соглашаюсь с <a href="cookie-policy.html" target="_blank">Политикой использования cookie</a>.</p>
-                <button class="cta-button cookie-accept-btn" id="cookieAcceptBtn">Понятно</button>
-            </div>
-        </div>
+    </script>    
 
-<script src="js/cookie-dialog.js"></script>
+    <!-- Cookie-уведомление -->
+    <div id="cookie-banner">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+            <p style="margin: 0; font-size: 14px;">Продолжая пользоваться сайтом, вы соглашаетесь с <a href="cookie-policy.html?embed=1" target="_blank">Политикой использования cookie</a>.</p>
+            <button id="cookie-accept" style="background: var(--primary); color: white; border: none; border-radius: 30px; padding: 8px 20px; font-weight: 600; cursor: pointer;">Понятно</button>
+        </div>
+    </div>
+
+    <script>
+        // Cookie-баннер
+        (function() {
+            if (!localStorage.getItem('cookieAccepted')) {
+                document.getElementById('cookie-banner').style.display = 'block';
+            }
+            document.getElementById('cookie-accept').addEventListener('click', function() {
+                localStorage.setItem('cookieAccepted', 'true');
+                document.getElementById('cookie-banner').style.display = 'none';
+            });
+        })();
+
+        // Плавный скролл к разделу "Возможности"
+        document.querySelector('.btn-secondary').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('features').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
