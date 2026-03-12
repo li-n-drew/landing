@@ -117,6 +117,11 @@
             color: var(--primary);
         }
 
+        .header-logo a {
+            text-decoration: none;      /* убирает подчёркивание */
+            color: inherit;             /* заставляет ссылку наследовать цвет от родительского элемента */
+        }        
+
         .header-btn {
             background: var(--primary);
             color: var(--white);
@@ -729,8 +734,10 @@
     <!-- Фиксированный хедер -->
     <header class="fixed-header">
         <div class="header-logo">
-            <i class="fas fa-chart-line"></i>
-            <span>CashUP!</span>
+            <a href="index.html">
+                <i class="fas fa-chart-line"></i>
+                <span>CashUP!</span>
+            </a>
         </div>
         <a href="https://www.rustore.ru/catalog/app/com.yourcompany.cashup" download class="header-btn">Скачать</a>
     </header>
